@@ -1,0 +1,76 @@
+p {
+    color: blue;
+    for-size: 20px;
+}
+
+/* Center H1 elements */
+h1{
+    color: blue;
+    text-align: center;
+}
+#page-title {
+    text-shadow: 4px 4px skyblue;
+}
+body{
+    /* use a new font */
+    background-color:paleturquoise;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.section-header {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-transform: uppercase;
+}
+.favorite-section {
+    border: 5px black double;  /* width color style*/
+    margin: 5px;
+    padding: 10px
+}
+/* remove underline from links, set bkground color*/
+a {
+    background-color: azure;
+    text-decoration: none;
+}
+
+#favorite-movie-title{
+    font-style: italic;
+    color: red
+    
+}
+#favorite-music-name {
+        color: green;
+        font-style: bold;
+}
+ul{
+    background-color: limegreen;
+}
+li {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-stretch: expanded;
+}
+#most-favorite-food {
+    font-style: oblique;
+    text-shadow: 2px 2px 7px black;
+}
+.table-head{
+    background-color: seagreen;
+    color: blanchedalmond;
+    text-align: left;
+}
+td{
+    color: purple;
+}
+.favorite-image {
+    border: 2px solid black;
+    border-radius: 10px;     
+}
+table{
+    width: 500px;
+    padding: 10px;
+    border-top: 4px solid darkblue;
+    border-right: 2px solid blueviolet;
+    border-left: 2px solid blueviolet;
+    border-bottom: 4px solid darkblue;
+}
+tr:hover{
+    background-color: lightpink
+}
