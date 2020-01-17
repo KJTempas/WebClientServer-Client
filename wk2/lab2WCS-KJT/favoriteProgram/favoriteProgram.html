@@ -1,13 +1,36 @@
 <!DOCTYPE html>
  <lang="en">
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="favoriteProgram-styles.css" type="text/css">
     <meta charset="UTF-8">
     <title>       </title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+<div class="jumbotron">
+    <h1>Consignment Store</h1>
+</div>
 
+<p> The Consignment Store app is a Java program for a clothing consignment store. It allows the user
+    to add consignors and clothing items, and facilitates sales calculations. Data is written to 
+    a database.</p>
 
+    <p> Here is a link to the GitHub repository: <a href="https://github.com/KJTempas/Consignment">Consignment Store</a></p>
+
+    <p> Some sample code follows:</p>
+    <p><pre><code> Consignor consignor = consignorList.getSelectedValue();
+        int ConsignorID = consignor.getConsignorID();
+
+        String type = (String) typeBox.getSelectedItem();
+        String color = (String) colorBox.getSelectedItem();
+        Date dateRecd = new Date();
+
+        //create an item object - database will assign it an itemID
+        Item newItem = new Item(ConsignorID, type, color, dateRecd);
+        manager.addItem(newItem);
+        //configureTable();
+        updateItemsTable();         </code></pre></p>
 
 </body>
 </html>
