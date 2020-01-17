@@ -1,0 +1,14 @@
+#real-alert{
+    color: red;
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+a{
+    display: block;
+}
+#test-only{
+    margin: 50px;
+    background-color: lightgreen;
+
+}
