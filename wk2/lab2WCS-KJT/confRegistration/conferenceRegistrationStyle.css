@@ -1,0 +1,13 @@
+/*links to conferenceRebistrationForm.html */
+
+body{
+    font-family: 'Titillium Web', sans-serif; 
+}
+#shirtSize{
+    color: blue;
+}
+#junkMail{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: oblique;
+    font-variant: small-caps;
+}

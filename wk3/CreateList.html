@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<lang=”en”>
+<meta charset = “UTF-8”>
+
+<head>
+<title>Form input to List  </title>
+</head>
+<body>
+
+<p>Enter a winter destination location</p>
+<!-- the input field, with an id, which is called from the JS-->
+<input type="text" id="destination">
+<!-- the add button with an id, which called from the JS -->
+<button id="save_destination">Add</button>
+<button id="clear">Clear</button>
+
+<p id="message"></p>
+<ul id="destination-list">
+   <!-- info will come through JS-->
+</ul>
+<script>
+    let listCounter = 0
+// JS comments are different format than HTML comments, which use <!--  -->
+//variable declaration - linking JS to HTML id
+let addButton = document.querySelector('#save_destination')
+let placeInput = document.querySelector('#destination')  //the user text input
+let message = document.querySelector('#message')
+
+//find the destination-list ul using it's id
+var destinationList = document.querySelector('#destination-list')
+
+//let clearInput = document.querySelector('#clear')
+
+addButton.addEventListener('click', function() {
+    let destination = placeInput.value  //get the value typed into the user text box
+    //validation
+    if (destination.length>50) {
+        message.innerHTML = "The destination can be a maximum of 50 characters"
+    }
+    let listItem = document.createElement('li');  //create a new li element
+    listItem.innerHTML = `${destination}`  //set the new li element's innerHTML to the user destination input
+    destinationList.appendChild(listItem) //add the list item to the ul
+    placeInput.value=""  //clear the input field
+    listCounter = listCounter + 1   
+})
+
+clearButton.addEventListener('click', function(){
+
+
+    
+    //destinationList.value.innerHTML = "" doesn't work
+    //destinationList.innerHTML="" //doesn't work
+    //destinationList.innerHTML.value='' doesn't work
+    
+    //while(destinationList.hasChildNodes()){ nope
+    //destinationList.removeChild('li');
+    //document.getElementById("destination-list").innerHTML = ""; no
+})
+
+
+
+</script>
+
+</body>
+</html>
