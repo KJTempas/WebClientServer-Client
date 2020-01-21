@@ -32,6 +32,8 @@ let clearButton = document.querySelector('#clear')
 
 
 addButton.addEventListener('click', function() {
+    //let destinationList = document.querySelector('#destination-list')  //copied from above
+    //while(destinationList.length<10) {
     let destination = placeInput.value  //get the value typed into the user text box
     //validation
     if (destination.length>50) {
@@ -46,7 +48,9 @@ addButton.addEventListener('click', function() {
     destinationList.appendChild(listItem) //add the list item to the ul
     placeInput.value=""  //clear the input field
     listCounter = listCounter + 1   
+   // }
 })
+
 
 //clearButton.addEventListener('click', function(){
     //get all of the list items
@@ -54,18 +58,15 @@ addButton.addEventListener('click', function() {
     //let listItems = document.getElementsByTagName("li")
     //loop through the list items 
     clearButton.addEventListener('click', function(){
-        for (let x=0; x<destinationList.length; x++) {
-        //let listItem = listItems[x]
-        destinationList.removeChild(x)
-    }
-    
+        //this does not work
+        //let elements = document.getElementsByTagName('li') ; //get all the list items
+        //let parentOfElements = elements.parentNode;
+        //for (x=0; x<elements.length; x++) {
+          //  parentOfElements.removeChild(x)
+          
         
-    
-    //loop through destination list and remove each child element
-    //select all of the list items
-    
-})
-
+       // }   
+    })
 
 
 

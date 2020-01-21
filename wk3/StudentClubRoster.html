@@ -1,65 +1,171 @@
 <!DOCTYPE html>
-<lang=”en”>
-<meta charset = “UTF-8”>
-
+<html lang="en">
 <head>
-<title>Form input to List  </title>
+  <title>Club Membership</title>
+
+  <style>
+
+      .selected {
+        text-decoration: line-through ;
+        font-style: italic;
+        color: gray;
+      }
+
+      input {
+          width: 100%;
+          padding: 5px;
+          margin: 5px 5px 5px 0px;
+          box-sizing: border-box;
+
+      }
+
+  </style>
+
 </head>
 <body>
 
-<p>Enter a winter destination location</p>
-<!-- the input field, with an id, which is called from the JS-->
-<input type="text" id="destination">
-<!-- the add button with an id, which called from the JS -->
-<button id="save_destination">Add</button>
-<button id="clear">Clear</button>
+    <h1>Student Club Roster</h1>
 
-<p id="message"></p>
-<ul id="destination-list">
-   <!-- info will come through JS-->
-</ul>
+    <h2>Add Students</h2>
+
+    <label for="student-name">Student Name</label><input id="student-name" name="student-name">
+    <br>
+    <label for="student-id">Student ID</label><input id="student-id" name="student-id">
+    <br>
+    <label for="student-gpa">Student GPA</label><input id="student-gpa" name="student-gpa" type="number">
+    <br>
+    <button id="add-student">Add Student</button>    
+
+    <h2>Student List</h2>
+
+    <p>There are 
+        <span id="student-count">
+          <!-- use JavaScript to count the number of students, and show here -->
+        </span> 
+    student(s) in the club.</p>
+
+
+    <ul id="student-list">
+        <!-- use JavaScript to create li elements  -->
+    </ul>
+
+    <button id="remove-selected-students">Remove selected students</button>
+
 <script>
-    let listCounter = 0
-// JS comments are different format than HTML comments, which use <!--  -->
-//variable declaration - linking JS to HTML id
-let addButton = document.querySelector('#save_destination')
-let placeInput = document.querySelector('#destination')  //the user text input
-let message = document.querySelector('#message')
 
-//find the destination-list ul using it's id
-var destinationList = document.querySelector('#destination-list')
+    /* Add the following functionality to this page
+    When the page loads
+        - Using JavaScript, display 0 in span#student-count
+    When button#add-students is clicked
+        - Read the value from the student-name input
+        - Read the value from the student-id input
+        - Read the value from the student-gpa input
+        - Create a new li element
+        - Set the new li element innerHTML to a string containing the student's name, id, and GPA
+            - for example "Beyonce Knowles, id: aa1234bb, GPA: 3.8"
+            - Use a template string  
+        - Add a click event handler to each li element. 
+            When a li element is clicked, add the class="selected" to that li element.
+            When a li element is clicked again, remove the class="selected" from that li element
+        - Add the new li element to ul#student-list element 
+        - Update the span#student-count value to the new number of students
+    When button#remove-selected-students is clicked, 
+        - remove all of the elements with the class="selected" from the list. 
+        
+    */
+    //linking all of the HTML element tag ids to variables used in JS
+    let studentCountDisplay = document.querySelector('#student-count')
+    let addButton = document.querySelector('#add-student')
+    let studentNameInput = document.querySelector('#student-name')  
+    let studentId = document.querySelector('#student-id')
+    let studentGPA = document.querySelector('#student-gpa')
+    let studentList = document.querySelector('#student-list')
+    let removeButton = document.querySelector("#remove-selected-students")
+    let studentCount = 0  //variable to count number of students
+    studentCountDisplay.innerHTML= studentCount
 
-//let clearInput = document.querySelector('#clear')
-
-addButton.addEventListener('click', function() {
-    let destination = placeInput.value  //get the value typed into the user text box
-    //validation
-    if (destination.length>50) {
-        message.innerHTML = "The destination can be a maximum of 50 characters"
+addButton.addEventListener('click', function(){
+    let name = studentNameInput.value    
+    let id = studentId.value
+    let gpa = studentGPA.value
+    if (name.length<1) {
+        alert("Enter a student name")
     }
-    let listItem = document.createElement('li');  //create a new li element
-    listItem.innerHTML = `${destination}`  //set the new li element's innerHTML to the user destination input
-    destinationList.appendChild(listItem) //add the list item to the ul
-    placeInput.value=""  //clear the input field
-    listCounter = listCounter + 1   
+
+    if (id.length <1 ){
+        alert("Enter a valid student ID")
+    }
+
+    if(gpa >4 || gpa <=0) {
+        alert("Enter a valid GPA")
+    }
+
+    let listItem = document.createElement('li');  //creating a new li element
+    //template string  - they use backticks; using it to set list Item
+    listItem.innerHTML = `${name} , id: ${id}, GPA: ${gpa}`
+    studentCount = studentCount + 1    //add one to counter each time you add a student
+    studentCountDisplay.innerHTML= studentCount
+    studentList.appendChild(listItem)  //add the list item to the ul
+    //add click event handler to the new li element
+    listItem.addEventListener('click', function() {
+        //set class name to "selected"
+        listItem.className = "selected"
+    })
+
+    //clear the input fields
+    studentNameInput.value=""  //clear the input fields
+    studentId.value=""
+    studentGPA.value=""
+
 })
+//adding event listener to list elements
+//studentList.addEventListener("click", function(){
+   // let li = document.getElementsByTagName("li")
+   // li.class="selected"
+    //li.setAttribute("class", "selected")
+//error - li.setAttribute is not a function
+    //document.getElementById("li").setAttribute("class", "selected");
 
-clearButton.addEventListener('click', function(){
+  //  https://www.w3schools.com/jsref/met_element_setattribute.asp
+  //document.getElementById("myAnchor").setAttribute("href", "https://www.w3schools.com");
+  //li.setAttribute("class", "selected")
+    //let li = document.getElementById("student-list").getElementsByTagName("li");
+    //li.setAttribute("class", "selected");
+    //node.setAttribute
+    //if it's already selected, unselect - use if/else - if 
+
+//document.getElementById("ul").addEventListener("click", function() {
+//add class="selected" to that element
+//https://stackoverflow.com/questions/10272107/add-delete-class-to-li-with-javascript-when-you-are-on-specific-div
+//var node = document.getElementById("student-list").getElementsByTagName("li")[i];
+//node.setAttribute("class", "selected");
+//for deleting 
+//node.setAttribute("class", "");
+
+//https://stackoverflow.com/questions/38249812/add-class-to-li-tag-on-click
+//('ul#moodtabs li').click(function() {
+   // $(this).addClass('current').siblings('li').removeClass('current');
+//});
+//$('ul#student-list li').click(function() {
+  //  ${this}.addClass('selected');  //doesn't like {this}
+//})
+
+//this.removeClass('selected')
+//let li.innerHTML.class ="selected"
+//li.innerHTML(class="selected")
 
 
-    
-    //destinationList.value.innerHTML = "" doesn't work
-    //destinationList.innerHTML="" //doesn't work
-    //destinationList.innerHTML.value='' doesn't work
-    
-    //while(destinationList.hasChildNodes()){ nope
-    //destinationList.removeChild('li');
-    //document.getElementById("destination-list").innerHTML = ""; no
+
+
+removeButton.addEventListener('click', function() {
+   //get the list item selected
+   let listItem = studentList.getElementsByClassName("selected") 
+    studentList.removeChild(listItem)
+
 })
-
 
 
 </script>
 
 </body>
-</html>
+</html> 
