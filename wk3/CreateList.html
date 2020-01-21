@@ -27,9 +27,9 @@ let placeInput = document.querySelector('#destination')  //the user text input
 let message = document.querySelector('#message')
 
 //find the destination-list ul using it's id
-var destinationList = document.querySelector('#destination-list')
+let destinationList = document.querySelector('#destination-list')
+let clearButton = document.querySelector('#clear')
 
-//let clearInput = document.querySelector('#clear')
 
 addButton.addEventListener('click', function() {
     let destination = placeInput.value  //get the value typed into the user text box
@@ -37,6 +37,10 @@ addButton.addEventListener('click', function() {
     if (destination.length>50) {
         message.innerHTML = "The destination can be a maximum of 50 characters"
     }
+    if(destination.length<1) {
+        message.innerHTML = "Enter a destination"
+    }
+    //while (listCounter<10) [
     let listItem = document.createElement('li');  //create a new li element
     listItem.innerHTML = `${destination}`  //set the new li element's innerHTML to the user destination input
     destinationList.appendChild(listItem) //add the list item to the ul
@@ -44,18 +48,24 @@ addButton.addEventListener('click', function() {
     listCounter = listCounter + 1   
 })
 
-clearButton.addEventListener('click', function(){
-
-
+//clearButton.addEventListener('click', function(){
+    //get all of the list items
+    //let listItems = document.querySelectorAll("li")
+    //let listItems = document.getElementsByTagName("li")
+    //loop through the list items 
+    clearButton.addEventListener('click', function(){
+        for (let x=0; x<destinationList.length; x++) {
+        //let listItem = listItems[x]
+        destinationList.removeChild(x)
+    }
     
-    //destinationList.value.innerHTML = "" doesn't work
-    //destinationList.innerHTML="" //doesn't work
-    //destinationList.innerHTML.value='' doesn't work
+        
     
-    //while(destinationList.hasChildNodes()){ nope
-    //destinationList.removeChild('li');
-    //document.getElementById("destination-list").innerHTML = ""; no
+    //loop through destination list and remove each child element
+    //select all of the list items
+    
 })
+
 
 
 

@@ -6,3 +6,6 @@
 a {
     text-decoration: underline ;
 }
+body{
+    margin:25px;  /*  added margin so content does not hug left side of browser*/
+}
