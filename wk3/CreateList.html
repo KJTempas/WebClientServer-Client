@@ -58,6 +58,16 @@ addButton.addEventListener('click', function() {
     //let listItems = document.getElementsByTagName("li")
     //loop through the list items 
     clearButton.addEventListener('click', function(){
+        //let destList = document.getElementsByID('#destination-list')
+        let destList = document.querySelector('#destination-list')
+        for(var x =0; x<destList.length; x++)
+        destList.removeChild(x)
+        //for(var x=0; x<destinationList.length; x++) {
+            //destinationList.removeChild(x)
+        
+        
+        //destinationList.length = 0   //does not work
+    
         //this does not work
         //let elements = document.getElementsByTagName('li') ; //get all the list items
         //let parentOfElements = elements.parentNode;

@@ -106,18 +106,19 @@ addButton.addEventListener('click', function(){
     studentCount = studentCount + 1    //add one to counter each time you add a student
     studentCountDisplay.innerHTML= studentCount
     studentList.appendChild(listItem)  //add the list item to the ul
-    //add click event handler to the new li element
+
+    //clear the input fields
+    studentNameInput.value=""  
+    studentId.value=""
+    studentGPA.value=""
+})
+
+let listItem = document.querySelector('li')
+
+//add click event handler to the new li element
     listItem.addEventListener('click', function() {
         //set class name to "selected"
         listItem.className = "selected"
-    })
-
-    //clear the input fields
-    studentNameInput.value=""  //clear the input fields
-    studentId.value=""
-    studentGPA.value=""
-
-})
 //adding event listener to list elements
 //studentList.addEventListener("click", function(){
    // let li = document.getElementsByTagName("li")
@@ -125,34 +126,6 @@ addButton.addEventListener('click', function(){
     //li.setAttribute("class", "selected")
 //error - li.setAttribute is not a function
     //document.getElementById("li").setAttribute("class", "selected");
-
-  //  https://www.w3schools.com/jsref/met_element_setattribute.asp
-  //document.getElementById("myAnchor").setAttribute("href", "https://www.w3schools.com");
-  //li.setAttribute("class", "selected")
-    //let li = document.getElementById("student-list").getElementsByTagName("li");
-    //li.setAttribute("class", "selected");
-    //node.setAttribute
-    //if it's already selected, unselect - use if/else - if 
-
-//document.getElementById("ul").addEventListener("click", function() {
-//add class="selected" to that element
-//https://stackoverflow.com/questions/10272107/add-delete-class-to-li-with-javascript-when-you-are-on-specific-div
-//var node = document.getElementById("student-list").getElementsByTagName("li")[i];
-//node.setAttribute("class", "selected");
-//for deleting 
-//node.setAttribute("class", "");
-
-//https://stackoverflow.com/questions/38249812/add-class-to-li-tag-on-click
-//('ul#moodtabs li').click(function() {
-   // $(this).addClass('current').siblings('li').removeClass('current');
-//});
-//$('ul#student-list li').click(function() {
-  //  ${this}.addClass('selected');  //doesn't like {this}
-//})
-
-//this.removeClass('selected')
-//let li.innerHTML.class ="selected"
-//li.innerHTML(class="selected")
 
 
 
@@ -164,7 +137,7 @@ removeButton.addEventListener('click', function() {
 
 })
 
-
+studentCount = 0
 </script>
 
 </body>
