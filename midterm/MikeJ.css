@@ -1,10 +1,23 @@
 h1 {
-    font-size: 25;
+    font-size: 50;
     text-align: center;
 }
+.m3{
+    
+
+    /* Chrome 10+, Safari 5.1+ */
+    background-image: -webkit-linear-gradient(#66b2f4,#b1d6f7)
+
+
+/* need for other browsers here*/
+
+}
+
+
 
 li {
     display: inline;
-    background-color: blue;
-    color: white;
+    background-color: white;
+    color: black;
+    font-size: 25px;
 }

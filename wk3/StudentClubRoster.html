@@ -85,6 +85,8 @@
     studentCountDisplay.innerHTML= studentCount
 
 addButton.addEventListener('click', function(){
+    //if (studentCount<10){   if wanted to count # of students and only add10 max, this works
+    
     let name = studentNameInput.value    
     let id = studentId.value
     let gpa = studentGPA.value
@@ -105,20 +107,22 @@ addButton.addEventListener('click', function(){
     listItem.innerHTML = `${name} , id: ${id}, GPA: ${gpa}`
     studentCount = studentCount + 1    //add one to counter each time you add a student
     studentCountDisplay.innerHTML= studentCount
+    
     studentList.appendChild(listItem)  //add the list item to the ul
 
     //clear the input fields
     studentNameInput.value=""  
     studentId.value=""
     studentGPA.value=""
+    }
 })
 
-let listItem = document.querySelector('li')
+//let listItem = document.querySelector('li')
 
 //add click event handler to the new li element
-    listItem.addEventListener('click', function() {
+   // listItem.addEventListener('click', function() {
         //set class name to "selected"
-        listItem.className = "selected"
+        //listItem.className = "selected"
 //adding event listener to list elements
 //studentList.addEventListener("click", function(){
    // let li = document.getElementsByTagName("li")
@@ -130,14 +134,14 @@ let listItem = document.querySelector('li')
 
 
 
-removeButton.addEventListener('click', function() {
+//removeButton.addEventListener('click', function() {
    //get the list item selected
-   let listItem = studentList.getElementsByClassName("selected") 
-    studentList.removeChild(listItem)
+   //let listItem = studentList.getElementsByClassName("selected") 
+    //studentList.removeChild(listItem)
 
-})
 
-studentCount = 0
+
+
 </script>
 
 </body>

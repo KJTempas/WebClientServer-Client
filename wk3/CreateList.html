@@ -32,6 +32,7 @@ let clearButton = document.querySelector('#clear')
 
 
 addButton.addEventListener('click', function() {
+    if(listCounter<10) {
     //let destinationList = document.querySelector('#destination-list')  //copied from above
     //while(destinationList.length<10) {
     let destination = placeInput.value  //get the value typed into the user text box
@@ -49,6 +50,7 @@ addButton.addEventListener('click', function() {
     placeInput.value=""  //clear the input field
     listCounter = listCounter + 1   
    // }
+    }
 })
 
 
