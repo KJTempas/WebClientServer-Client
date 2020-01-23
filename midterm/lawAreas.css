@@ -8,11 +8,12 @@ img.align-left-large {
 .generalInfo {  
     font-size: larger;
     margin: 100px;
- 
-}
-#realEstateBody{
-    
     /* Chrome 10+, Safari 5.1+ */
     background-image: -webkit-linear-gradient(#66b2f4,#b1d6f7)
+}
+.basicInfo{
+    font-size: larger;
+    
+    
 }
 

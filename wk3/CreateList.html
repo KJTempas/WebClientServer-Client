@@ -43,41 +43,25 @@ addButton.addEventListener('click', function() {
     if(destination.length<1) {
         message.innerHTML = "Enter a destination"
     }
-    //while (listCounter<10) [
+    
     let listItem = document.createElement('li');  //create a new li element
     listItem.innerHTML = `${destination}`  //set the new li element's innerHTML to the user destination input
     destinationList.appendChild(listItem) //add the list item to the ul
     placeInput.value=""  //clear the input field
     listCounter = listCounter + 1   
-   // }
+   
     }
 })
 
 
-//clearButton.addEventListener('click', function(){
-    //get all of the list items
-    //let listItems = document.querySelectorAll("li")
-    //let listItems = document.getElementsByTagName("li")
-    //loop through the list items 
     clearButton.addEventListener('click', function(){
+        
         //let destList = document.getElementsByID('#destination-list')
         let destList = document.querySelector('#destination-list')
-        for(var x =0; x<destList.length; x++)
-        destList.removeChild(x)
-        //for(var x=0; x<destinationList.length; x++) {
-            //destinationList.removeChild(x)
-        
-        
-        //destinationList.length = 0   //does not work
-    
-        //this does not work
-        //let elements = document.getElementsByTagName('li') ; //get all the list items
-        //let parentOfElements = elements.parentNode;
-        //for (x=0; x<elements.length; x++) {
-          //  parentOfElements.removeChild(x)
-          
-        
-       // }   
+        console.log(destList)
+        destList.innerHTML=''
+ 
+         
     })
 
 

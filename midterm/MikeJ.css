@@ -12,7 +12,9 @@ h1 {
 /* need for other browsers here*/
 
 }
-
+.jumbotron {
+    background-color: rgb(141, 155, 219);
+}
 
 
 li {
