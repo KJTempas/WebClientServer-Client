@@ -53,6 +53,7 @@
     <p id="order-summary">
         <!-- Use JavaScript to display the order information, 
             if all the required information is entered  -->
+            <!-- use a template string-->
             
     </p>
     
@@ -64,9 +65,11 @@
     let homeownerHouseNumberInput = document.querySelector('#homeowner-house-number')
     let homeownerStreetNameInput = document.querySelector('#homeowner-street-name')
     let treeTypeSelect = document.querySelector('#tree-type')
-
+    
     // TODO create a variable for city input element
+    let cityNameInput = document.querySelector('#city')
     // TODO create a variable for zip code input element
+    let zipCodeInput= document.querySelector('zipcode')
     
     let submitButton = document.querySelector('#submit-order')
 
@@ -80,12 +83,18 @@
         let treeType = treeTypeSelect.value
 
         // TODO get the value from the input#city
+        let city = cityNameInput.value
         // TODO get the value from the input#zipcode
-
+        let zipCode= zipCodeInput.value
         // TODO Validate that all six input and select elements have been completed
 
         // TODO Validate the zipcode is in the range 55001 and 56763 (which checks that the zip code is in Minnesota)
-
+        function isMinnesotaZip(zipCode) {
+            if(zipCode >=55001 && zipCode <=56763) {
+                return true
+            }
+            return false
+        }
         let errors = []
         
         // If a form element has not been completed, add an error message to the errors array (use push)
