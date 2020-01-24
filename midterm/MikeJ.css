@@ -13,7 +13,12 @@ h1 {
 
 }
 .jumbotron {
-    background-color: rgb(141, 155, 219);
+    /*background-color: rgb(141, 155, 219);-->*/
+    /*background: url('images/tomasz-filipek-joOVC9d-jis-unsplash.jpg');*/
+    /*Photo by Tomasz Filipek on Unsplash*/
+    background: url('images/tomasz-filipek-joOVC9d-jis-unsplash.jpg') /* not showing up*/
+    
+
 }
 
 
@@ -23,3 +28,5 @@ li {
     color: black;
     font-size: 23px;
 }
+
+

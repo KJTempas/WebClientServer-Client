@@ -69,7 +69,7 @@
     // TODO create a variable for city input element
     let cityNameInput = document.querySelector('#city')
     // TODO create a variable for zip code input element
-    let zipCodeInput= document.querySelector('zipcode')
+    let zipCodeInput= document.querySelector('#zipcode')
     
     let submitButton = document.querySelector('#submit-order')
 
@@ -98,16 +98,46 @@
         let errors = []
         
         // If a form element has not been completed, add an error message to the errors array (use push)
-
-        
+        if(!name) {
+            errors.push('Enter the homeowner\'s name')
+        }
+        if(!houseNumber) {
+            errors.push('Enter a house number')
+        }
+        if(!streetName) {
+            errors.push('Enter a street name')
+        }
+        if(!city) {
+            errors.push('Enter a city')
+        }
+        if(!zipCode) {
+            errors.push('Enter a valid zip code')
+        }
+        if(!treeType) {
+            errors.push('Select a tree type')
+        }
         // TODO - If there are any errors after checking all of the elements, 
         // display an alert with all of the error messages (use join)
         // and then return from this function to prevent further processing 
-
+        if (errors.length>0) {
+            let errorMsg = errors.join('\n')
+            alert(errorMsg)
+            return
+        }
 
         // TODO - If there are no errors, use a template string to display an order summary in the order summary paragraph
-
+        //else {orderSummaryParagraph.innerHTML //error - inner html does not work here
+            //else {orderSummaryParagraph.
+            //things that don't work  oSP.push ; oSP.innerHtML;.textContent
+            else{
+                
+            orderSummaryParagraph.(`${name}\n   //this prints out well in console log; need to get it into orderSummaryP
+            ${houseNumber}  ${streetName} \n
+            ${city} ,MN \n
+            ${zipCode} \n
+            Tree type: ${treeType}`)
         
+        }  
     })
 
 
