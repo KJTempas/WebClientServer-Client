@@ -60,14 +60,18 @@ let cats_and_owners = [
 ];
 
 // TODO print Gary Oldman's cat's name
-//console.log("Gary Oldman's cat is named " + cats_and_owners.cat[1]) - errors
-// TODO Taylor Swift's cat is called 'Meredith'. Write code to add this data to the array.
-//cats_and_owners.Taylor Swift =Meredith
-// TODO write a loop to print each cat owner, and their cat's name, one per line. Use the forEach style.
-//console.log('Cats and their owners') - not correct
-//cats_and_owners.forEach()
-  //  console.log(JSON.stringify(cats_and_owners))
+console.log("Gary Oldman's cat is named " + cats_and_owners[1].cat) // works
 
+// TODO Taylor Swift's cat is called 'Meredith'. Write code to add this data to the array.
+cats_and_owners.push('name: Taylor Swift, cat: Meredith')  //close but not quite
+console.log(cats_and_owners[4])  //prints the new addition
+console.log(cats_and_owners) //not working
+
+// TODO write a loop to print each cat owner, and their cat's name, one per line. Use the forEach style.
+//console.log('Cat owners and their cat\'s names:')
+//cats_and_owners.forEach (function(name, cat) {
+  //console.log(JSON.stringify(cats_and_owners, null, 0))})
+//not working
 
 
 
@@ -76,11 +80,6 @@ Source http://api.nobelprize.org/v1/prize.json?year=2017
 * */
 
 
-// TODO print the ids of each of the Physics Nobel laureates. Your code should still work without modification if a laureate was added, or removed.
-// TODO write code to print the names of all of the prize categories (So your output would start physics, chemistry, medicine... ).
-// TODO write code to print the total number of prize categories
-// TODO write code to count the total number of laureates from 2017. 
-//   have a good look at how the JSON is structured, and think about what loop(s) you'll need to write.
 
 
 let nobel_prize_winners_2017 = {
@@ -209,4 +208,42 @@ let nobel_prize_winners_2017 = {
 };
 
 // TODO print the full name of the Literature Nobel laureate.
-console.log(nobel_prize_winners_2017.prizes.laureates.firstname +' ' + nobel_prize_winners_2017.prizes.laureates.surname)
+console.log(nobel_prize_winners_2017.prizes[3]) //prints literature only - an object
+// console.log(nobel_prize_winners_2017.prizes[3].laureates[0].firstname[1]) - no help
+console.log(nobel_prize_winners_2017.prizes[3].laureates) //prints less-just under laureates
+console.log(nobel_prize_winners_2017.prizes[3].laureates.firstname) 
+
+
+// TODO print the ids of each of the Physics Nobel laureates. Your code should still work without modification if a laureate was added, or removed.
+
+// TODO write code to print the names of all of the prize categories (So your output would start physics, chemistry, medicine... ).
+let categories = []
+console.log('List of all of the Nobel price categories:')
+for(let i=0; i<nobel_prize_winners_2017.prizes.length; i++ ){
+  categories.push(nobel_prize_winners_2017[i])
+}
+console.log(categories)
+//categories = []  //array to hold all of the categories ; tried adding let - no help
+//for (var component in nobel_prize_winners_2017) {
+ // categoryName = nobel_prize_winners_2017[component].category;
+  //categories.push(categoryName)  //add the category to the array
+//nobel_prize_winners_2017.category.forEach(function(category) {
+ // console.log(category)
+
+
+//console.log(nobel_prize_winners_2017.categories)
+
+
+
+// TODO write code to print the total number of prize categories
+//length of the array - slide 48 - this works
+numberOfCategories = nobel_prize_winners_2017.prizes.length
+console.log(`There are ${numberOfCategories} prize categories.`)
+
+
+
+// TODO write code to count the total number of laureates from 2017. 
+let counter = 0;
+//do a for loop
+
+//   have a good look at how the JSON is structured, and think about what loop(s) you'll need to write.

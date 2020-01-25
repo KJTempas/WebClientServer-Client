@@ -130,17 +130,21 @@
             //else {orderSummaryParagraph.
             //things that don't work  oSP.push ; oSP.innerHtML;.textContent
             else{
-                
-            orderSummaryParagraph.(`${name}\n   //this prints out well in console log; need to get it into orderSummaryP
+              /* let orderSummaryParagraph =  (`${name}\n   //this prints out well in console log; need to get it into orderSummaryP
             ${houseNumber}  ${streetName} \n
             ${city} ,MN \n
             ${zipCode} \n
             Tree type: ${treeType}`)
-        
+              // orderSummaryParagraph.(`${name}\n   //this prints out well in console log; need to get it into orderSummaryP
+              */
+             let orderSummaryParagraph = (`${name} \n${houseNumber}  ${streetName} ${city} ,MN ${zipCode} Tree type: ${treeType}`) //\n does not work
+           
+        var myJSON = JSON.stringify(orderSummaryParagraph, null, 2) //still all on one line
         }  
+        document.getElementById("order-summary").innerHTML = myJSON;  //on web page  - prints, but all in one line
     })
 
-
+    
 
 </script>
 
