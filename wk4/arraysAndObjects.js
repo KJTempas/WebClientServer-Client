@@ -22,7 +22,7 @@ console.log('Space station latitude: ' ,iss_location.iss_position.latitude)
 // TODO Extract the longitude value, and log it to the console.
 console.log('Space station longitude: ', iss_location.iss_position.longitude)
 
-
+console.log(" ")
 
 /* b. Use this JavaScript object of exchange rates relative to Euros.
 The properties are currency symbols, the values are the exchange rates.
@@ -39,7 +39,6 @@ let rates = {
 
 // TODO write code to add a new property for Swiss Francs. Symbol is CHF, value is 1.1787.
 rates.CHF = 1.1787
-//let rates[4] = {currencySymbol: 'CHF', exchangeRate: 1.1787}  //not correct
 console.log(rates) //to check if CHF attribute appeared
 
 // TODO if you had 100 Euros, write code to get the exchange rate from the object, then calculate 
@@ -229,49 +228,42 @@ let nobel_prize_winners_2017 = {
 };
 
 // TODO print the full name of the Literature Nobel laureate.
-/*console.log("The Nobel prize winner for literature in 2017 was: ")
-console.log(nobel_prize_winners_2017.prizes[3]) //prints literature only - an object
-// console.log(nobel_prize_winners_2017.prizes[3].laureates[0].firstname[1]) - no help
-console.log(nobel_prize_winners_2017.prizes[3].laureates) //prints less-just under laureates
-console.log(nobel_prize_winners_2017.prizes[3].laureates.firstname) //does not work
-let literature = nobel_prize_winners_2017.prizes[3].laureates
-console.log(literature)*/
-//console.log(literature.laureates.firstname) // error-cannot read property 'firstname'
-//let laureates = literature.laureates
-//console.log(laureates) //undefined
-
+ let firstName= nobel_prize_winners_2017.prizes[3].laureates[0].firstname
+ let surname = nobel_prize_winners_2017.prizes[3].laureates[0].surname
+ let fullName = firstName +" " +  surname
+ console.log("The Nobel prize winner for literature in 2017 was: " + fullName)
+console.log(" " )
 
 // TODO print the ids of each of the Physics Nobel laureates. Your code should still work without modification if a laureate was added, or removed.
-
+let idList = []
+for(let i=0; i<nobel_prize_winners_2017.prizes[0].laureates.length; i++) {
+  idList.push(nobel_prize_winners_2017.prizes[0].laureates[i].id)
+}
+console.log("These are the ids of each of the Physics Nobel laureates: " + idList)
+console.log(" " )
 
 // TODO write code to print the names of all of the prize categories (So your output would start physics, chemistry, medicine... ).
-let categories = []
-console.log('List of all of the Nobel price categories:')
-for(let i=0; i<nobel_prize_winners_2017.prizes.length; i++ ){
-  categories.push(nobel_prize_winners_2017[i])
+let categories = []  //list to hold the category names
+for(let i=0; i<nobel_prize_winners_2017.prizes.length; i++ ){ //loop through the prizes
+  categories.push(nobel_prize_winners_2017.prizes[i].category) //add each categoy to the array
 }
-console.log(categories) // this prints an array of undefined elements (undefined means a variable that has not been defined. Example: reading a value from a non-existent array element)
-//categories = []  //array to hold all of the categories ; tried adding let - no help
-//for (var component in nobel_prize_winners_2017) {
- // categoryName = nobel_prize_winners_2017[component].category;
-  //categories.push(categoryName)  //add the category to the array
-//nobel_prize_winners_2017.category.forEach(function(category) {
- // console.log(category)
-
-
-//console.log(nobel_prize_winners_2017.categories)
-
-
+console.log("This is a list of the Nobel prize categories: " + categories) 
+console.log(" ") //just to put a space between answers for ease in reading
 
 // TODO write code to print the total number of prize categories
-//length of the array - slide 48 - this works
+//length of the array - slide 48
 numberOfCategories = nobel_prize_winners_2017.prizes.length
 console.log(`There are ${numberOfCategories} prize categories.`)
 
-
-
 // TODO write code to count the total number of laureates from 2017. 
-let counter = 0;
-//do a for loop
-
+//let counter = 0;   //answer should be 12 - could get all Ids in an array and determine the length of the array
+let listOfIds = []
+// loop through and add 1 to the counter each time - need a nested for loop
+for(let i=0; i<nobel_prize_winners_2017.prizes.length; i++ ){
+  for(let x=-0; x<nobel_prize_winners_2017.prizes.laureates.length; x++) {
+    listOfIds.push(nobel_prize_winners_2017.prizes.laureates[x].id)  //error length of undefined
+  }
+}
+let numberOfLaureates = listOfIds.length
+console.log(numberOfLaureates)
 //   have a good look at how the JSON is structured, and think about what loop(s) you'll need to write.
