@@ -39,6 +39,7 @@ let rates = {
 
 // TODO write code to add a new property for Swiss Francs. Symbol is CHF, value is 1.1787.
 rates.CHF = 1.1787
+//let rates[4] = {currencySymbol: 'CHF', exchangeRate: 1.1787}  //not correct
 console.log(rates) //to check if CHF attribute appeared
 
 // TODO if you had 100 Euros, write code to get the exchange rate from the object, then calculate 
@@ -50,7 +51,7 @@ console.log('100 Euros can be exchanged for ' + australianDollars.toFixed(2) + '
 
 // TODO write code to identify the currency symbol that has the highest exchange rate compared to Euros.
 //loop through rates
-x = findMax(values from rates go here)  //
+/*x = findMax(values from rates go here)  //
 function findMax(){  //slide 20
   var i;
   var max='Infinity';
@@ -60,13 +61,12 @@ function findMax(){  //slide 20
     }
   }
   return max
-}
-
+}*/
+//if an array, can use arrayName.sort() but this is not an array
 //    In other words, identify the property with the largest value. the answer is BRL (Brazilian Real) at 3.8959 BRL to 1 Euro.
 
 
-
-
+console.log(" " )  //space between sections
 /* c. Use this JavaScript array of objects of cat owners, and their cats. Source, moderncat.com
  */
 
@@ -79,19 +79,22 @@ let cats_and_owners = [
 
 // TODO print Gary Oldman's cat's name
 console.log("Gary Oldman's cat is named " + cats_and_owners[1].cat) // works
+console.log(" ")
 
 // TODO Taylor Swift's cat is called 'Meredith'. Write code to add this data to the array.
-cats_and_owners.push('name: Taylor Swift, cat: Meredith')  //close but not quite
-console.log(cats_and_owners[4])  //prints the new addition
-console.log(cats_and_owners) //not working
+cats_and_owners.push({name: "Taylor Swift", cat: "Meredith"})
+
+console.log(cats_and_owners[4].name + " has a cat named " + cats_and_owners[4].cat)
+console.log(cats_and_owners)
+console.log(" ")
 
 // TODO write a loop to print each cat owner, and their cat's name, one per line. Use the forEach style.
-//console.log('Cat owners and their cat\'s names:')
-//cats_and_owners.forEach (function(name, cat) {
-  //console.log(JSON.stringify(cats_and_owners, null, 0))})
-//not working
-
-
+console.log('Cat owners and their cat\'s names:')
+cats_and_owners.forEach(function(element){
+  console.log(element.name  +  " has a cat named " + element.cat)
+  
+})
+console.log(" ") //an empty line between sections
 
 /* d. Use the following JSON object, describing the Nobel Prize winners in 2017.
 Source http://api.nobelprize.org/v1/prize.json?year=2017
@@ -226,11 +229,16 @@ let nobel_prize_winners_2017 = {
 };
 
 // TODO print the full name of the Literature Nobel laureate.
+/*console.log("The Nobel prize winner for literature in 2017 was: ")
 console.log(nobel_prize_winners_2017.prizes[3]) //prints literature only - an object
 // console.log(nobel_prize_winners_2017.prizes[3].laureates[0].firstname[1]) - no help
 console.log(nobel_prize_winners_2017.prizes[3].laureates) //prints less-just under laureates
-console.log(nobel_prize_winners_2017.prizes[3].laureates.firstname) 
-
+console.log(nobel_prize_winners_2017.prizes[3].laureates.firstname) //does not work
+let literature = nobel_prize_winners_2017.prizes[3].laureates
+console.log(literature)*/
+//console.log(literature.laureates.firstname) // error-cannot read property 'firstname'
+//let laureates = literature.laureates
+//console.log(laureates) //undefined
 
 
 // TODO print the ids of each of the Physics Nobel laureates. Your code should still work without modification if a laureate was added, or removed.
@@ -242,7 +250,7 @@ console.log('List of all of the Nobel price categories:')
 for(let i=0; i<nobel_prize_winners_2017.prizes.length; i++ ){
   categories.push(nobel_prize_winners_2017[i])
 }
-console.log(categories)
+console.log(categories) // this prints an array of undefined elements (undefined means a variable that has not been defined. Example: reading a value from a non-existent array element)
 //categories = []  //array to hold all of the categories ; tried adding let - no help
 //for (var component in nobel_prize_winners_2017) {
  // categoryName = nobel_prize_winners_2017[component].category;
