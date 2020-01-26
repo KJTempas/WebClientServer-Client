@@ -6,7 +6,7 @@ h1 {
     
 
     /* Chrome 10+, Safari 5.1+ */
-    background-image: -webkit-linear-gradient(#66b2f4,#b1d6f7)
+    background-image: -webkit-linear-gradient(#2a96f5,#c8def1 )
 
 
 /* need for other browsers here*/
@@ -14,18 +14,15 @@ h1 {
 }
 .jumbotron {
     /*background-color: rgb(141, 155, 219);-->*/
-    /*background: url('images/tomasz-filipek-joOVC9d-jis-unsplash.jpg');*/
-    /*Photo by Tomasz Filipek on Unsplash*/
-    background: url('images/tomasz-filipek-joOVC9d-jis-unsplash.jpg') /* not showing up*/
-    
+    background: url('images/raphael-andres-Ym7NVRKgmJc-unsplash.jpg')
 
 }
 
 
 li {
     display: inline;
-    background-color: white;
-    color: black;
+    background-color: gold;
+    color: darkblue;
     font-size: 23px;
 }
 

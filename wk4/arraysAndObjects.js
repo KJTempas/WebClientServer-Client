@@ -43,7 +43,25 @@ console.log(rates) //to check if CHF attribute appeared
 
 // TODO if you had 100 Euros, write code to get the exchange rate from the object, then calculate 
 //      the equivalent value in Australian Dollars (AUD)
+let exchangeRate = rates.AUD //get the exchange rate from the dictionary in the object
+console.log(exchangeRate) //  prints 1.6517 -OK so far
+let australianDollars = 100 * exchangeRate
+console.log('100 Euros can be exchanged for ' + australianDollars.toFixed(2) + ' Australian Dollars.') //works
+
 // TODO write code to identify the currency symbol that has the highest exchange rate compared to Euros.
+//loop through rates
+x = findMax(values from rates go here)  //
+function findMax(){  //slide 20
+  var i;
+  var max='Infinity';
+  for(i =0; i<arguments.length; i++) {
+    if (arguments[i] >max) {
+      max=arguments[i];
+    }
+  }
+  return max
+}
+
 //    In other words, identify the property with the largest value. the answer is BRL (Brazilian Real) at 3.8959 BRL to 1 Euro.
 
 
@@ -214,7 +232,9 @@ console.log(nobel_prize_winners_2017.prizes[3].laureates) //prints less-just und
 console.log(nobel_prize_winners_2017.prizes[3].laureates.firstname) 
 
 
+
 // TODO print the ids of each of the Physics Nobel laureates. Your code should still work without modification if a laureate was added, or removed.
+
 
 // TODO write code to print the names of all of the prize categories (So your output would start physics, chemistry, medicine... ).
 let categories = []
