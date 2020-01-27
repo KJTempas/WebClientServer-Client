@@ -44,12 +44,30 @@ console.log(rates) //to check if CHF attribute appeared
 // TODO if you had 100 Euros, write code to get the exchange rate from the object, then calculate 
 //      the equivalent value in Australian Dollars (AUD)
 let exchangeRate = rates.AUD //get the exchange rate from the dictionary in the object
-console.log(exchangeRate) //  prints 1.6517 -OK so far
+//console.log(exchangeRate) //  prints 1.6517 -OK so far
 let australianDollars = 100 * exchangeRate
 console.log('100 Euros can be exchanged for ' + australianDollars.toFixed(2) + ' Australian Dollars.') //works
 
 // TODO write code to identify the currency symbol that has the highest exchange rate compared to Euros.
-//loop through rates
+console.log("The currency symbol that has the highest exchange rate compared to Euros is : ")
+//loop through rates - set 1st value as max; compare next one to it-if greater, set that as max
+/*var i;
+var max = rates.AUD  //get the 1st value - works
+console.log(exchangeRate)  //prints 1.5417
+for (i=0; i<rates.length; i++) {
+  if(rates[i].exchangeRate>max) {
+    max=rates[i].exchangeRate
+  }
+}
+console.log(max)
+*/
+//planB - make an array of exchange rates
+let valuesList=[]
+for(i=0;i<rates.length; i++) {
+  valuesList.push(rates[i].exchangeRate)  //yielding an empty array
+  
+}
+console.log(valuesList)
 /*x = findMax(values from rates go here)  //
 function findMax(){  //slide 20
   var i;
@@ -259,12 +277,12 @@ console.log(`There are ${numberOfCategories} prize categories.`)
 //let counter = 0;   //answer should be 12 - could get all Ids in an array and determine the length of the array
 let listOfIds = []
 // loop through and add 1 to the counter each time - need a nested for loop
-for(let i=0; i<nobel_prize_winners_2017.prizes.length; i++ ){
-  for(let x=-0; x<nobel_prize_winners_2017.prizes[2].length; x++) {
-  
-    listOfIds.push(nobel_prize_winners_2017.prizes.laureates[x].id)  //error length of undefined
-  }
-}
-let numberOfLaureates = listOfIds.length
-console.log(numberOfLaureates)
+//for(let i=0; i<nobel_prize_winners_2017.prizes.length; i++ ){ //prizes is an array of objects//
+  //for(let x=-0; x<nobel_prize_winners_2017.prizes[2].length; x++) {
+  //listOfIds.push(laureates.id)
+    //listOfIds.push(nobel_prize_winners_2017.prizes.laureates[i].id)  //error length of undefined
+  //}
+//}
+//let numberOfLaureates = listOfIds.length
+//console.log(numberOfLaureates)
 //   have a good look at how the JSON is structured, and think about what loop(s) you'll need to write.
