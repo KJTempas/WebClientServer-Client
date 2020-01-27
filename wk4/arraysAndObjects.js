@@ -260,7 +260,8 @@ console.log(`There are ${numberOfCategories} prize categories.`)
 let listOfIds = []
 // loop through and add 1 to the counter each time - need a nested for loop
 for(let i=0; i<nobel_prize_winners_2017.prizes.length; i++ ){
-  for(let x=-0; x<nobel_prize_winners_2017.prizes.laureates.length; x++) {
+  for(let x=-0; x<nobel_prize_winners_2017.prizes[2].length; x++) {
+  
     listOfIds.push(nobel_prize_winners_2017.prizes.laureates[x].id)  //error length of undefined
   }
 }

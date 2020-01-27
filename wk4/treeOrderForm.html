@@ -89,12 +89,12 @@
         // TODO Validate that all six input and select elements have been completed
 
         // TODO Validate the zipcode is in the range 55001 and 56763 (which checks that the zip code is in Minnesota)
-        function isMinnesotaZip(zipCode) {
+        /*function isMinnesotaZip(zipCode) {
             if(zipCode >=55001 && zipCode <=56763) {
                 return true
             }
             return false
-        }
+        }*/
         let errors = []
         
         // If a form element has not been completed, add an error message to the errors array (use push)
@@ -113,6 +113,9 @@
         if(!zipCode) {
             errors.push('Enter a valid zip code')
         }
+        if(zipCode <=55001 || zipCode >=56763) {
+            errors.push('Zip code is not in range for Minnesota')
+        }
         if(!treeType) {
             errors.push('Select a tree type')
         }
@@ -126,22 +129,12 @@
         }
 
         // TODO - If there are no errors, use a template string to display an order summary in the order summary paragraph
-        //else {orderSummaryParagraph.innerHTML //error - inner html does not work here
-            //else {orderSummaryParagraph.
-            //things that don't work  oSP.push ; oSP.innerHtML;.textContent
             else{
-              /* let orderSummaryParagraph =  (`${name}\n   //this prints out well in console log; need to get it into orderSummaryP
-            ${houseNumber}  ${streetName} \n
-            ${city} ,MN \n
-            ${zipCode} \n
-            Tree type: ${treeType}`)
-              // orderSummaryParagraph.(`${name}\n   //this prints out well in console log; need to get it into orderSummaryP
-              */
-             let orderSummaryParagraph = (`${name} \n${houseNumber}  ${streetName} ${city} ,MN ${zipCode} Tree type: ${treeType}`) //\n does not work
+             let orderSummaryParagraph = (`${name} ${houseNumber}  ${streetName} ${city},MN ${zipCode} Tree type: ${treeType}`) 
            
-        var myJSON = JSON.stringify(orderSummaryParagraph, null, 2) //still all on one line
+        var myJSON = JSON.stringify(orderSummaryParagraph, null, 2) 
         }  
-        document.getElementById("order-summary").innerHTML = myJSON;  //on web page  - prints, but all in one line
+        document.getElementById("order-summary").innerHTML = myJSON;  
     })
 
     
