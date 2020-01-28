@@ -109,19 +109,43 @@ addButton.addEventListener('click', function(){
     studentCountDisplay.innerHTML= studentCount
 
     studentList.appendChild(listItem)  //add the list item to the ul
-    listItem.addEventListener('click', function() {
-        //set class name to "selected"
-        listItem.className = "selected"
     //clear the input fields
     studentNameInput.value=""  
     studentId.value=""
     studentGPA.value=""
-    }
-)
-
-
-
+    listItem.addEventListener('click', function() {
+        //set class name to "selected"
+        listItem.className = "selected"
+    
+    })
    })
+//add event listener to list for use not when adding a list item
+/*let listItem = document.querySelector("selected")  //does that select the first li, or the one being clicked?
+listItem.addEventListener('click', function() {
+    //id which list item is selected - this keyuword slide 91
+    
+    if(listItem.className ="selected") {  //if list item is already class name selected, remove the class name
+        listItem.className=" "
+    }else{                              //otherwise, make it's class name selected
+        listItem.className="selected"
+    }
+})*/
+
+removeButton.addEventListener('click', function() {
+    //get all listItems marked class=selected
+    let selectedItems = document.getElementsByClassName('selected')
+    console.log(selectedItems) //get an array
+    //remove each of these elements from the list 
+        for(x=0; x<selectedItems.length; x++) {
+            //selectedItems[x].innerHTML=""  //this leaves the bullet point, but erases out the text
+            let containerEl = selectedItems[x].parentNode
+            containerEl.removeChild(selectedItems[x])  //removes only one child
+
+        }
+        
+    })
+    
+
 
 </script>
 

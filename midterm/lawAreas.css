@@ -9,8 +9,11 @@ img.align-left-large {
     font-size: larger;
     margin: 100px;
     /* Chrome 10+, Safari 5.1+ */
-    background-image: -webkit-linear-gradient(#66b2f4,#b1d6f7)
+   /* background-image: -webkit-linear-gradient(#66b2f4,#b1d6f7)*/
+   background: rgb(106,100,215);
+   background: linear-gradient(90deg, rgba(106,100,215,1) 0%, rgba(101,101,181,1) 40%, rgba(158,180,214,1) 100%);
 }
+
 .basicInfo{
     font-size: larger;
     
