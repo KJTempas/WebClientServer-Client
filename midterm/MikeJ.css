@@ -19,40 +19,43 @@ h1 {
     /* Chrome 10+, Safari 5.1+ */
     background-image: -webkit-linear-gradient(#2a96f5,#c8def1 )
 
+/* need for other browsers? */
 
-/* need for other browsers here*/
 
 }
 .jumbotron {
-    /*background-color: rgb(141, 155, 219);-->*/
-    background: url('images/raphael-andres-Ym7NVRKgmJc-unsplash.jpg')
+    background-color: rgb(141, 155, 219);
+    /*background: url('images/raphael-andres-Ym7NVRKgmJc-unsplash.jpg')*/
     
 }
 
 img{
-    width: 100%
+   width: 100%;
+    height: 20%;
 }
 li {
     display: inline;
-    font-size: 1.25rem;
+    font-size: 1.0rem;
 }
 .navigation{
     width: 100%;
     background-color: #5e83a8;
 }
 a{
-    color: black;
-    padding-right: 20px;
+    color:goldenrod;
+    padding-right: 15px;
     font-size: 1.5rem;
 }
 img.align-left-large {
     float: left;
-    margin-right: 10px;
+    margin-right: 7px;
 }
 
 .basicInfo{
     font-size: larger;
-    
-    
+      
+}
+.email{
+    font-size: 1.0rem;
 }
 

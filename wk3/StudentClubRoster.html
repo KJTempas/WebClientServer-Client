@@ -93,11 +93,9 @@ addButton.addEventListener('click', function(){
     if (name.length<1) {
         alert("Enter a student name")
     }
-
     if (id.length <1 ){
         alert("Enter a valid student ID")
     }
-
     if(gpa >4 || gpa <=0) {
         alert("Enter a valid GPA")
     }
@@ -115,20 +113,31 @@ addButton.addEventListener('click', function(){
     studentGPA.value=""
     listItem.addEventListener('click', function() {
         //set class name to "selected"
-        listItem.className = "selected"
-    
-    })
+        listItem.className = "selected"  //original line - works to mark a line selected
+        //listItem.addEventListener('click', function() {
+         //   listItem.className= ""   //this unselects it, but can't toggle to selected again
+        //})
+       /* function toggleSelected() {
+            let element = document.getElementsByClassName('selected')
+            element.classList.toggle('selected')
+        }
+    })*/
    })
+})
+/*
+listItem.addEventListener('select', function(){
+   //function toggleSelected() {
+            //let element = document.getElementsByClassName('selected')
+            let element = document.getElementsByClassName("selected")
+            element.classList.toggle('selected')
+        })
+*/
 //add event listener to list for use not when adding a list item
 /*let listItem = document.querySelector("selected")  //does that select the first li, or the one being clicked?
 listItem.addEventListener('click', function() {
     //id which list item is selected - this keyuword slide 91
+    listItem.classList.toggle("selected")
     
-    if(listItem.className ="selected") {  //if list item is already class name selected, remove the class name
-        listItem.className=" "
-    }else{                              //otherwise, make it's class name selected
-        listItem.className="selected"
-    }
 })*/
 
 removeButton.addEventListener('click', function() {
@@ -140,7 +149,8 @@ removeButton.addEventListener('click', function() {
             //selectedItems[x].innerHTML=""  //this leaves the bullet point, but erases out the text
             let containerEl = selectedItems[x].parentNode
             containerEl.removeChild(selectedItems[x])  //removes only one child
-
+            studentCount = studentCount -1    //remove one from counter each time you remove a student
+            studentCountDisplay.innerHTML= studentCount
         }
         
     })
