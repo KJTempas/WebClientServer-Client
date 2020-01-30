@@ -51,15 +51,19 @@ console.log('100 Euros can be exchanged for ' + australianDollars.toFixed(2) + '
 // TODO write code to identify the currency symbol that has the highest exchange rate compared to Euros.
 console.log("The currency symbol that has the highest exchange rate compared to Euros is : ")
 //loop through rates - set 1st value as max; compare next one to it-if greater, set that as max
-var i;
+//var i;
 var max = rates.AUD  //get the 1st value - works
 console.log(max) //prints 1.5417 - correct
-//for (i=0; i<rates.length; i++) {    //rates is an object, not an array, so maybe length does not work
-rates.exchangeRate.forEach(function(exchangeRate) {
-  if (exchangeRate>max) {
-    max=exchangeRate
-  }
-})
+//console.log(rates.length)  //undefined
+//rates.exchangeRate.forEach(function(exchangeRate) {  //error - can't read property forEach of undefined
+console.log(rates)  //prints the object - all of the key/value pairs
+console.log(rates[2])  //undefined
+console.log(rates[2].exchangeRate) //cannot read property 'exchange rate" of undefined
+//HOW TO ACCESS VALUES
+  //if (exchangeRate>max) {
+   // max=exchangeRate
+  //}
+//})
   //if(rates[i].exchangeRate>max) {
    // max=rates[i].exchangeRate
   
@@ -284,13 +288,18 @@ console.log(`There are ${numberOfCategories} prize categories.`)
 // loop through and add 1 to the counter each time - need a nested for loop
 let listOfIds = []  //answer should be 12 - could get all Ids in an array and determine the length of the array
 for(let i=0; i<nobel_prize_winners_2017.prizes.length; i++ ){ //loop through prizes - an array of objects
+//console.log(nobel_prize_winners_2017.prizes[i]) //giving me lots - physics and chem and medicine......
+//console.log(nobel_prize_winners_2017.prizes[0].laureates) //prints 3 physics winners(id/names/etc) multiple timess
+//console.log(nobel_prize_winners_2017.prizes[i].length) //undefined
+
+
   for(let x=0; x<nobel_prize_winners_2017.prizes[i].length; x++){ //within each prize, loop through the array of objects
   let id=nobel_prize_winners_2017.prizes[i].laureates[x].id//should get the 1stprize object's first laureate's id, then 1st prize, 2nd laureate's id
   console.log(id)  //nothing prints
   listOfIds.push(id)  //add the id to the array
   }
 }   
-//console.log(nobel_prize_winners_2017.prizes[1].laureates[2].id) //prints 946, so accessed correctly
+console.log(nobel_prize_winners_2017.prizes[1].laureates[2].id) //prints 946, so accessed correctly
 console.log(listOfIds)   //yields and empty array
 console.log(listOfIds.length)  //length would be total # of ids or total # of winners
   
