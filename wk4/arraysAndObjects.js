@@ -39,7 +39,7 @@ let rates = {
 
 // TODO write code to add a new property for Swiss Francs. Symbol is CHF, value is 1.1787.
 rates.CHF = 1.1787
-console.log(rates) //to check if CHF attribute appeared
+console.log(rates) //to check if CHF attribute appeared - it does
 
 // TODO if you had 100 Euros, write code to get the exchange rate from the object, then calculate 
 //      the equivalent value in Australian Dollars (AUD)
@@ -51,47 +51,30 @@ console.log('100 Euros can be exchanged for ' + australianDollars.toFixed(2) + '
 // TODO write code to identify the currency symbol that has the highest exchange rate compared to Euros.
 console.log("The currency symbol that has the highest exchange rate compared to Euros is : ")
 //loop through rates - set 1st value as max; compare next one to it-if greater, set that as max
-//var i;
-var max = rates.AUD  //get the 1st value - works
+let max = rates.AUD  //get the 1st value - works
 console.log(max) //prints 1.5417 - correct
-//console.log(rates.length)  //undefined
-//rates.exchangeRate.forEach(function(exchangeRate) {  //error - can't read property forEach of undefined
-console.log(rates)  //prints the object - all of the key/value pairs
-console.log(rates[2])  //undefined
-console.log(rates[2].exchangeRate) //cannot read property 'exchange rate" of undefined
-//HOW TO ACCESS VALUES
-  //if (exchangeRate>max) {
-   // max=exchangeRate
-  //}
-//})
-  //if(rates[i].exchangeRate>max) {
-   // max=rates[i].exchangeRate
-  
-
-console.log(max)  //printing 1.5417 still
-
-//planB - make an array of exchange rates - does not work
-/*let valuesList=[]
-for(i=0;i<rates.length; i++) {
-  valuesList.push(rates[i].exchangeRate)  //yielding an empty array
-  
-}
-console.log(valuesList)*/
-//below from slides
-/*x = findMax(values from rates go here)  //
-function findMax(){  //slide 20
-  var i;
-  var max='Infinity';
-  for(i =0; i<arguments.length; i++) {
-    if (arguments[i] >max) {
-      max=arguments[i];
-    }
+//make an array of the values
+let arrayOfExchangeRates = []
+//loop over the objects
+for (var r in rates) {
+  console.log(rates[r]) //prints each of the exchange rates
+  arrayOfExchangeRates.push(rates[r]) // add each exchRate to the array
+  if(rates[r] >max) {  
+    max = rates[r] // then set that value as the max
   }
-  return max
-}*/
-//if an array, can use arrayName.sort() but this is not an array
-//    In other words, identify the property with the largest value. the answer is BRL (Brazilian Real) at 3.8959 BRL to 1 Euro.
+}
 
+
+console.log(arrayOfExchangeRates)
+let sortedArray = arrayOfExchangeRates.sort()
+console.log(sortedArray) //prints in ascending order
+console.log(max)  //printing 3.8959 - correct
+//once you get the value, need to get its key
+let currencySymbol = rates.max
+console.log(currencySymbol)  //undefined
+
+
+//    In other words, identify the property with the largest value. the answer is BRL (Brazilian Real) at 3.8959 BRL to 1 Euro.
 
 console.log(" " )  //space between sections
 /* c. Use this JavaScript array of objects of cat owners, and their cats. Source, moderncat.com

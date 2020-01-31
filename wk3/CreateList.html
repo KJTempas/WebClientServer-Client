@@ -32,36 +32,32 @@ let clearButton = document.querySelector('#clear')
 
 
 addButton.addEventListener('click', function() {
-    //if(listCounter<5) {
-    //let destinationList = document.querySelector('#destination-list')  //copied from above
-    //if (destinationList.length<5) {  //when I add this, nothing adds to the list
+    if(listCounter<3) {
     let destination = placeInput.value  //get the value typed into the user text box
     //validation
     if(destination.length<1) {
         message.innerHTML = "Enter a destination"   
     }else if(destination.length>50) {
         message.innerHTML = "The destination can be a maximum of 50 characters"
-    //} else if (listCounter<5){ //does not work
+    
     } else{  
-    //if(destinationList.length<5) {  //proceed with adding list item as long as destinationList contains <10 items-does not add at all
+    
     let listItem = document.createElement('li');  //create a new li element
     listItem.innerHTML = `${destination}`  //set the new li element's innerHTML to the user destination input
     destinationList.appendChild(listItem) //add the list item to the ul
     placeInput.value=""  //clear the input field
-    //listCounter = listCounter + 1   
+    listCounter = listCounter + 1   
     message.innerHTML=""  //clear error message if one was displayed
     }
-
+    }
     })
 
 
-
     clearButton.addEventListener('click', function(){
-        
         let destList = document.querySelector('#destination-list')
-        console.log(destList)
-        destList.innerHTML=''
- 
+        destList.innerHTML=''  //clears the list of elements
+        placeInput.value="" //clears the placeInput - BUT can't add any more
+        listCounter=0  //reset list counter
          
     })
 

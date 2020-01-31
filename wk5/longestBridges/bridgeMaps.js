@@ -21,11 +21,19 @@ let verrazanoMarker = L.marker(verrazanoCoordinates)
     .addTo(map)
 
 
-//create array of objects
+//create array of objects to be displayed in popup, and to note location
 let bridgesAndSpans = [
-{bridge: 'Verrazano-Narrows Bridge', span: '1298.4 meters'},
-{bridge: 'Golden Gate Bridge', span: '1280.2 meters'},
-{bridge: 'Mackinac Bridge', span: '1158.0 meters'},
-{bridge: 'George Washington Bridge', span: '1067.0 meters'},
-{bridge: 'Tacoma Narrows Bridge', span: '853.44 meters'}
+{bridge: 'Verrazano-Narrows Bridge', span: '1298.4 meters', lat: '40.6066', long: '-74.04477'},
+{bridge: 'Golden Gate Bridge', span: '1280.2 meters',lat: '37.8199', long: '122.4783'},
+{bridge: 'Mackinac Bridge', span: '1158.0 meters',lat: '45.8174', long: '-84.7278'},
+{bridge: 'George Washington Bridge', span: '1067.0 meters',lat: '40.8517', long: '-73.9527'},
+{bridge: 'Tacoma Narrows Bridge', span: '853.44 meters',lat: '47.2690', long: '-122.5517'}
 ]
+
+for(let i=0; i<bridgesAndSpans.length; i++) {
+    let length = bridgesAndSpans[i].span
+    let bridgeName= bridgesAndSpans[i].bridge
+    let marker = L.marker(bridgesAndSpans[i].lat, bridgesAndSpans[i].long) //coordinates go here
+    .bindPopup(bridgeName + length)
+    .addTo(map)
+}
