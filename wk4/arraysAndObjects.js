@@ -47,6 +47,7 @@ let exchangeRate = rates.AUD //get the exchange rate from the dictionary in the 
 //console.log(exchangeRate) //  prints 1.6517 -OK so far
 let australianDollars = 100 * exchangeRate
 console.log('100 Euros can be exchanged for ' + australianDollars.toFixed(2) + ' Australian Dollars.') //works
+console.log('')
 
 // TODO write code to identify the currency symbol that has the highest exchange rate compared to Euros.
 console.log("The currency symbol that has the highest exchange rate compared to Euros is : ")
@@ -63,16 +64,23 @@ for (var r in rates) {
     max = rates[r] // then set that value as the max
   }
 }
-
-
-console.log(arrayOfExchangeRates)
-let sortedArray = arrayOfExchangeRates.sort()
+console.log(max)  //does print 3.89
+console.log('')
+console.log(arrayOfExchangeRates)  //has all exch rates
+let sortedArray = arrayOfExchangeRates.sort()// gets rates in order
 console.log(sortedArray) //prints in ascending order
 console.log(max)  //printing 3.8959 - correct
 //once you get the value, need to get its key
 let currencySymbol = rates.max
 console.log(currencySymbol)  //undefined
-
+//stackoverflow
+//var key = rates.getKey(max);  //error - rages.getKey is not a function
+//console.log(key); 
+//another stackoverflow
+//var map = {"first" : 1, "second" : 2};
+//var key = val2key(2,map); /*returns "second"*/
+var key= valkey(max, rates) //doesn't understand
+//console.log(key)
 
 //    In other words, identify the property with the largest value. the answer is BRL (Brazilian Real) at 3.8959 BRL to 1 Euro.
 
@@ -109,8 +117,6 @@ console.log(" ") //an empty line between sections
 /* d. Use the following JSON object, describing the Nobel Prize winners in 2017.
 Source http://api.nobelprize.org/v1/prize.json?year=2017
 * */
-
-
 
 
 let nobel_prize_winners_2017 = {

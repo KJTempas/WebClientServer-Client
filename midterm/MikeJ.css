@@ -48,15 +48,24 @@ a{
     padding-right: 15px;
     font-size: 1.5rem;
 }
-
+img.align-left-large {
+    float: left;
+    margin-right: 10px;
+}
 
 .lawyerspics{
     width: 300px;
     height: 300px;
 }
 
+.lawAreaHeader{
+    margin-left: 3rem;
+
+}
 .basicInfo{
     font-size: 1rem;
+    margin-top: 5rem;
+    margin-left: 3rem;
       
 }
 .email{
