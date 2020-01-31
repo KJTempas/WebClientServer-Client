@@ -15,25 +15,41 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
 
 // Add markers for verrazano narrow bridge
-let verrazanoCoordinates= [40.6066, -74.0447]
-let verrazanoMarker = L.marker(verrazanoCoordinates)
-    .bindPopup("Verrazano-Narros Bridge<br> Span: 1298.4 meters")
-    .addTo(map)
+//let verrazanoCoordinates= [40.6066, -74.0447]
+//let verrazanoMarker = L.marker(verrazanoCoordinates)
+  //  .bindPopup("Verrazano-Narros Bridge<br> Span: 1298.4 meters")
+  //  .addTo(map)
 
 
 //create array of objects to be displayed in popup, and to note location
 let bridgesAndSpans = [
 {bridge: 'Verrazano-Narrows Bridge', span: '1298.4 meters', lat: '40.6066', long: '-74.04477'},
-{bridge: 'Golden Gate Bridge', span: '1280.2 meters',lat: '37.8199', long: '122.4783'},
+{bridge: 'Golden Gate Bridge', span: '1280.2 meters',lat: '37.8199', long: '-122.4783'},
 {bridge: 'Mackinac Bridge', span: '1158.0 meters',lat: '45.8174', long: '-84.7278'},
 {bridge: 'George Washington Bridge', span: '1067.0 meters',lat: '40.8517', long: '-73.9527'},
 {bridge: 'Tacoma Narrows Bridge', span: '853.44 meters',lat: '47.2690', long: '-122.5517'}
 ]
 
-for(let i=0; i<bridgesAndSpans.length; i++) {
+for(let i=0; i<bridgesAndSpans.length; i++) {  //loop over array
     let length = bridgesAndSpans[i].span
     let bridgeName= bridgesAndSpans[i].bridge
-    let marker = L.marker(bridgesAndSpans[i].lat, bridgesAndSpans[i].long) //coordinates go here
+    let bridgeCoordinates = [bridgesAndSpans[i].lat, bridgesAndSpans[i].long]
+    let bridgeMarker = L.marker(bridgeCoordinates) //coordinates go here - this works
+    //let bridgeMarker = L.marker(bridgeCoordinates], {icon: bridgeIcon}).addTo(map);
     .bindPopup(bridgeName + length)
     .addTo(map)
 }
+
+//creating icon - from leafletjs.com
+var bridgeIcon = L.icon({
+    iconUrl: 'bridge.png',
+    //shadowUrl: 'leaf-shadow.png',  ???
+
+    iconSize:     [38, 95], // size of the icon
+    shadowSize:   [50, 64], // size of the shadow
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+//putting marker w/ this icon on a map
+//L.marker([51.5, -0.09], {icon: bridgeIcon}).addTo(map);

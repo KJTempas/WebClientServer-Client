@@ -23,8 +23,9 @@
 <input id="color" type="color">
 <!--maybe need a select/options element-->
 
-<label for="range">Enter a circle radius</label>
-<input id="radius" type="range">
+<div class="slidecontainer">  <!--from w3schools-->
+  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+</div>
 
 <script>
 
@@ -49,24 +50,39 @@
     // get the x, y location of the event
     var x = event.offsetX;
     var y = event.offsetY;   //offsetX, offsetY, may not work in older browsers
+//reading the slider input (from w3schools)
+    //var slider = document.getElementById("myRange");
+    //var output = document.getElementById("demo");
+    //output.innerHTML = slider.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+//slider.oninput = function() {
+ // output.innerHTML = this.value;
+//}
+//let colorChoiceEl= document.querySelector('#color')
+  //let radiusInput = document.querySelector('#radius')
+  
+  //colorChoiceEl.addEventListener(function() {
+    //read data from input
+   //let color = colorChoiceEl.value
+    //let radius = radiusInput.value
+
+  //})
+
 
     //Draw a filled rectangle centered under the mouse click
     //x, y is the top left corner, so shift up and left by 5 to center it under the mouse.
-    context.fillRect(x-5, y-5, 0, 10);
-    //context.beginPath();
-    //context.arc(x-5, y-5, 20, 0, 2*Math.PI);
-    //context.stroke;
+    //context.fillRect(x-5, y-5, 0, 10);
+    context.beginPath();
+    context.arc(x-5, y-5, 10, 0, 2*Math.PI);
+    //context.stroke.radius= radius
+    context.strokeStyle="red"; //works
+    //context.strokeStyle=color; //not working
+    context.stroke();
   })
-/*
-  let colorChoice = document.querySelector('#color')
-  let radiusInput = document.querySelector('#radius')
+
   
-  input.addEventListener("input", function() {
-    //read data typed into input
-    let color = colorChoice.value
-    let radius = radiusInput.value
-  })
-*/
+  
 </script>
 
 </body>
