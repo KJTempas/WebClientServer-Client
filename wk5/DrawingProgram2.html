@@ -18,13 +18,6 @@
 
 <P>Drag the mouse on the canvas</P>
 <canvas id="canvas" height="400" width="400"></canvas>
-<br>
-<label for="colorInput">Choose a color</label>
-<input id="color" type="color">
-<!--maybe need a select/options element-->
-
-<label for="range">Enter a circle radius</label>
-<input id="radius" type="range">
 
 <script>
 
@@ -52,21 +45,12 @@
 
     //Draw a filled rectangle centered under the mouse click
     //x, y is the top left corner, so shift up and left by 5 to center it under the mouse.
-    context.fillRect(x-5, y-5, 0, 10);
-    //context.beginPath();
-    //context.arc(x-5, y-5, 20, 0, 2*Math.PI);
-    //context.stroke;
+    //context.fillRect(x-5, y-5, 20, 10);   //works
+    context.beginPath();
+    context.arc(x-5, y-5, 20, 0, 2*Math.PI);
+    context.stroke;  //does not draw anything
   })
-/*
-  let colorChoice = document.querySelector('#color')
-  let radiusInput = document.querySelector('#radius')
-  
-  input.addEventListener("input", function() {
-    //read data typed into input
-    let color = colorChoice.value
-    let radius = radiusInput.value
-  })
-*/
+
 </script>
 
 </body>

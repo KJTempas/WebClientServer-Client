@@ -1,7 +1,8 @@
 body{
     font-size: 16px;
+    background-image: -webkit-linear-gradient(#2a96f5,#c8def1 )
 }
-.generalInfo {  
+.generalInfo {    /* refers to the body*/
     font-size: larger;
     margin: 100px;
     /* Chrome 10+, Safari 5.1+ */
@@ -13,22 +14,24 @@ body{
 }
 
 h1 {
-    font-size: 50;
+    font-size: 2.5rem;
     text-align: center;
 }
-.m3{
+/*.m3{*/
 
     /* Chrome 10+, Safari 5.1+ */
-    background-image: -webkit-linear-gradient(#2a96f5,#c8def1 )
+   /* background-image: -webkit-linear-gradient(#2a96f5,#c8def1 )*/
 
 /* need for other browsers? */
+/*}*/
 
-
-}
 .jumbotron {
-    background-color:white;
-    /*background: url('images/raphael-andres-Ym7NVRKgmJc-unsplash.jpg')*/
+    background-color: lightslategray;
     
+    /*background: url('images/raphael-andres-Ym7NVRKgmJc-unsplash.jpg')*/  
+}
+.resize {
+    height: 400px;
 }
 
 img{
@@ -45,7 +48,7 @@ li {
 }
 a{
     color:goldenrod;
-    padding-right: 15px;
+    padding-right: 35px;
     font-size: 1.5rem;
 }
 img.align-left-large {
@@ -71,4 +74,10 @@ img.align-left-large {
 .email{
     font-size: 1.0rem;
 }
-
+footer{
+    background-color: lightslategray;
+}
+/*
+.index{
+    text-align: center;
+}*/
