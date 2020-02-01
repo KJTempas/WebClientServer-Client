@@ -16,6 +16,7 @@ body{
 h1 {
     font-size: 2.5rem;
     text-align: center;
+    color: darkblue;
 }
 /*.m3{*/
 
@@ -26,7 +27,7 @@ h1 {
 /*}*/
 
 .jumbotron {
-    background-color: lightslategray;
+    background-color: lightgray;/* lightslategray;*/
     
     /*background: url('images/raphael-andres-Ym7NVRKgmJc-unsplash.jpg')*/  
 }
@@ -76,6 +77,9 @@ img.align-left-large {
 }
 footer{
     background-color: lightslategray;
+}
+a.email{
+    color: rgb(49, 51, 184);
 }
 /*
 .index{

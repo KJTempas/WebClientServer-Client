@@ -29,27 +29,26 @@ let bridgesAndSpans = [
 {bridge: 'George Washington Bridge', span: '1067.0 meters',lat: '40.8517', long: '-73.9527'},
 {bridge: 'Tacoma Narrows Bridge', span: '853.44 meters',lat: '47.2690', long: '-122.5517'}
 ]
+//creating icon - from leafletjs.com
+var bridgeIcon = L.icon({
+    iconUrl: 'bridge.png',
+    //shadowUrl: 'leaf-shadow.png',  ???
+    iconSize:     [38, 95], // size of the icon
+    //shadowSize:   [50, 64], // size of the shadow
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    //shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+//putting marker w/ this icon on a map
+//L.marker([51.5, -0.09], {icon: bridgeIcon}).addTo(map);
 
 for(let i=0; i<bridgesAndSpans.length; i++) {  //loop over array
     let length = bridgesAndSpans[i].span
     let bridgeName= bridgesAndSpans[i].bridge
     let bridgeCoordinates = [bridgesAndSpans[i].lat, bridgesAndSpans[i].long]
     let bridgeMarker = L.marker(bridgeCoordinates) //coordinates go here - this works
-    //let bridgeMarker = L.marker(bridgeCoordinates], {icon: bridgeIcon}).addTo(map);
+    //let bridgeMarker = L.marker(bridgeCoordinates, {icon: bridgeIcon})//.addTo(map);
     .bindPopup(bridgeName + length)
     .addTo(map)
 }
 
-//creating icon - from leafletjs.com
-var bridgeIcon = L.icon({
-    iconUrl: 'bridge.png',
-    //shadowUrl: 'leaf-shadow.png',  ???
-
-    iconSize:     [38, 95], // size of the icon
-    shadowSize:   [50, 64], // size of the shadow
-    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-    shadowAnchor: [4, 62],  // the same for the shadow
-    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-});
-//putting marker w/ this icon on a map
-//L.marker([51.5, -0.09], {icon: bridgeIcon}).addTo(map);
