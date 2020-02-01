@@ -40,7 +40,7 @@ let rates = {
 // TODO write code to add a new property for Swiss Francs. Symbol is CHF, value is 1.1787.
 rates.CHF = 1.1787
 console.log(rates) //to check if CHF attribute appeared - it does
-
+console.log('')
 // TODO if you had 100 Euros, write code to get the exchange rate from the object, then calculate 
 //      the equivalent value in Australian Dollars (AUD)
 let exchangeRate = rates.AUD //get the exchange rate from the dictionary in the object
@@ -248,28 +248,17 @@ console.log("This is a list of the Nobel prize categories: " + categories)
 console.log(" ") //just to put a space between answers for ease in reading
 
 // TODO write code to print the total number of prize categories
-//length of the array - slide 48
+
 numberOfCategories = nobel_prize_winners_2017.prizes.length
 console.log(`There are ${numberOfCategories} prize categories.`)
 
+console.log('')  //just a space between questions
+
 // TODO write code to count the total number of laureates from 2017. 
-//let counter = 0;   
-// loop through and add 1 to the counter each time - need a nested for loop
-let listOfIds = []  //answer should be 12 - could get all Ids in an array and determine the length of the array
-for(let i=0; i<nobel_prize_winners_2017.prizes.length; i++ ){ //loop through prizes - an array of objects
-//console.log(nobel_prize_winners_2017.prizes[i]) //giving me lots - physics and chem and medicine......
-//console.log(nobel_prize_winners_2017.prizes[0].laureates) //prints 3 physics winners(id/names/etc) multiple timess
-//console.log(nobel_prize_winners_2017.prizes[i].length) //undefined
+let totalNumberOfLaureates = 0
+for(let x=0; x<nobel_prize_winners_2017.prizes.length; x++){
+  totalNumberOfLaureates = totalNumberOfLaureates+ nobel_prize_winners_2017.prizes[x].laureates.length
+}
+console.log(" The total numbrer of laureates in 2017 was  "+ totalNumberOfLaureates + ".")
 
-
-  for(let x=0; x<nobel_prize_winners_2017.prizes[i].length; x++){ //within each prize, loop through the array of objects
-  let id=nobel_prize_winners_2017.prizes[i].laureates[x].id//should get the 1stprize object's first laureate's id, then 1st prize, 2nd laureate's id
-  console.log(id)  //nothing prints
-  listOfIds.push(id)  //add the id to the array
-  }
-}   
-console.log(nobel_prize_winners_2017.prizes[1].laureates[2].id) //prints 946, so accessed correctly
-console.log(listOfIds)   //yields and empty array
-console.log(listOfIds.length)  //length would be total # of ids or total # of winners
-  
 //   have a good look at how the JSON is structured, and think about what loop(s) you'll need to write.
