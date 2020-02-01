@@ -50,37 +50,17 @@ console.log('100 Euros can be exchanged for ' + australianDollars.toFixed(2) + '
 console.log('')
 
 // TODO write code to identify the currency symbol that has the highest exchange rate compared to Euros.
-console.log("The currency symbol that has the highest exchange rate compared to Euros is : ")
-//loop through rates - set 1st value as max; compare next one to it-if greater, set that as max
-let max = rates.AUD  //get the 1st value - works
-console.log(max) //prints 1.5417 - correct
-//make an array of the values
-let arrayOfExchangeRates = []
-//loop over the objects
-for (var r in rates) {
-  console.log(rates[r]) //prints each of the exchange rates
-  arrayOfExchangeRates.push(rates[r]) // add each exchRate to the array
-  if(rates[r] >max) {  
-    max = rates[r] // then set that value as the max
+
+let max = rates.AUD  //set 1st value to compare others to
+for (var r in rates) { //loop through the properties of the object rates
+  if(rates[r] > max) { //rates[r] is the value for property r
+    max=rates[r];
+    currencySymbol=r;  //the key
   }
 }
-console.log(max)  //does print 3.89
-console.log('')
-console.log(arrayOfExchangeRates)  //has all exch rates
-let sortedArray = arrayOfExchangeRates.sort()// gets rates in order
-console.log(sortedArray) //prints in ascending order
-console.log(max)  //printing 3.8959 - correct
-//once you get the value, need to get its key
-let currencySymbol = rates.max
-console.log(currencySymbol)  //undefined
-//stackoverflow
-//var key = rates.getKey(max);  //error - rages.getKey is not a function
-//console.log(key); 
-//another stackoverflow
-//var map = {"first" : 1, "second" : 2};
-//var key = val2key(2,map); /*returns "second"*/
-var key= valkey(max, rates) //doesn't understand
-//console.log(key)
+  console.log(max)
+console.log(currencySymbol) //checking - correct
+console.log("The currency symbol that has the highest exchange rate compared to Euros is : " + JSON.stringify(currencySymbol))
 
 //    In other words, identify the property with the largest value. the answer is BRL (Brazilian Real) at 3.8959 BRL to 1 Euro.
 
