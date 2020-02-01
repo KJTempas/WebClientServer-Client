@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!--from w3schools-->
   <title>Mouse Events</title>
 
   <style>
@@ -9,6 +10,45 @@
     #canvas {
       border: 1px black solid;
     }
+
+    .slidecontainer {
+  width: 100%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 400px; /* Full-width */
+  height: 25px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #4CAF50; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #4CAF50; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
 
   </style>
 
@@ -21,11 +61,14 @@
 <br>
 <label for="colorInput">Choose a color</label>
 <input id="color" type="color">
-<!--maybe need a select/options element-->
 
 <div class="slidecontainer">  <!--from w3schools-->
-  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+  <p>Radius range slider:</p>
+  <input type="range" min="1" max="100" value="50" id="myRange"> 
+  <p>Value: <span id="sliderValue"></span></p>  <!--to display the values on the slider-->
 </div>
+
+
 
 <script>
 
@@ -51,37 +94,31 @@
     var x = event.offsetX;
     var y = event.offsetY;   //offsetX, offsetY, may not work in older browsers
 //reading the slider input (from w3schools)
-    //var slider = document.getElementById("myRange");
-    //var output = document.getElementById("demo");
-    //output.innerHTML = slider.value; // Display the default slider value
-
+    let slider = document.getElementById("myRange");//selects the radius range slide by ID
+    let output = document.getElementById("sliderValue");
+    
+    let radius = slider.value
+    output.innerHTML = slider.value; // Display the slider value - but does so after drawing - want live
+    console.log(radius)
+    
 // Update the current slider value (each time you drag the slider handle)
-//slider.oninput = function() {
- // output.innerHTML = this.value;
-//}
-//let colorChoiceEl= document.querySelector('#color')
-  //let radiusInput = document.querySelector('#radius')
+slider.oninput = function() {
+ output.innerHTML = this.value; //does not work
+}
+
+//get the color html element, then get its value
+let colorChoiceEl= document.getElementById("color")
+let color=colorChoiceEl.value
   
-  //colorChoiceEl.addEventListener(function() {
-    //read data from input
-   //let color = colorChoiceEl.value
-    //let radius = radiusInput.value
-
-  //})
-
-
-    //Draw a filled rectangle centered under the mouse click
-    //x, y is the top left corner, so shift up and left by 5 to center it under the mouse.
-    //context.fillRect(x-5, y-5, 0, 10);
+    //Draw a circle centered under the mouse click
     context.beginPath();
-    context.arc(x-5, y-5, 10, 0, 2*Math.PI);
-    //context.stroke.radius= radius
-    context.strokeStyle="red"; //works
-    //context.strokeStyle=color; //not working
+    context.arc(x-5, y-5, radius, 0, 2*Math.PI);
+    context.strokeStyle=color; 
     context.stroke();
-  })
-
+  });
   
+
+
   
 </script>
 
