@@ -12,7 +12,9 @@ body{
    background: rgb(150,176,238);
     background: linear-gradient(90deg, rgba(150,176,238,1) 0%, rgba(145,168,214,1) 40%, rgba(192,204,223,1) 100%);
 }
-
+.sticky-top{
+    position: sticky
+}
 h1 {
     font-size: 2.5rem;
     text-align: center;
@@ -61,11 +63,12 @@ img.align-left-large {
     width: 300px;
     height: 300px;
 }
-
+/*
 .lawAreaHeader{
     margin-left: 3rem;
+    
 
-}
+}*/
 .basicInfo{
     font-size: 1rem;
     margin-top: 5rem;
