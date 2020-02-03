@@ -14,13 +14,6 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
 
 
-// Add markers for verrazano narrow bridge
-//let verrazanoCoordinates= [40.6066, -74.0447]
-//let verrazanoMarker = L.marker(verrazanoCoordinates)
-  //  .bindPopup("Verrazano-Narros Bridge<br> Span: 1298.4 meters")
-  //  .addTo(map)
-
-
 //create array of objects to be displayed in popup, and to note location
 let bridgesAndSpans = [
 {bridge: 'Verrazano-Narrows Bridge', span: '1298.4 meters', lat: '40.6066', long: '-74.04477'},
@@ -33,21 +26,23 @@ let bridgesAndSpans = [
 var bridgeIcon = L.icon({
     iconUrl: 'bridge.png',
     //shadowUrl: 'leaf-shadow.png',  ???
-    iconSize:     [38, 95], // size of the icon
+    iconSize:     [50, 50], // size of the icon
     //shadowSize:   [50, 64], // size of the shadow
-    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    iconAnchor:   [25, 25], // point of the icon which will correspond to marker's location
     //shadowAnchor: [4, 62],  // the same for the shadow
     popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
-//putting marker w/ this icon on a map
-//L.marker([51.5, -0.09], {icon: bridgeIcon}).addTo(map);
+
 
 for(let i=0; i<bridgesAndSpans.length; i++) {  //loop over array
-    let length = bridgesAndSpans[i].span
+    let length = bridgesAndSpans[i].span  //setting element in the object to variables
     let bridgeName= bridgesAndSpans[i].bridge
-    let bridgeCoordinates = [bridgesAndSpans[i].lat, bridgesAndSpans[i].long]
+    let bridgeCoordinates = [bridgesAndSpans[i].lat, bridgesAndSpans[i].long]  
+    //let bridgeMarker = L.marker(bridgeCoordinates, {icon: bridgeIcon}) //does not work
     let bridgeMarker = L.marker(bridgeCoordinates) //coordinates go here - this works
-    //let bridgeMarker = L.marker(bridgeCoordinates, {icon: bridgeIcon})//.addTo(map);
+
+    
+    //let bridgeMarket = L.marker([bridgesAndSpans[i].lat, bridgesAndSpans[i].long], {icon: bridgeIcon})
     .bindPopup(bridgeName + length)
     .addTo(map)
 }
