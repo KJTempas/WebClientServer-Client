@@ -9,6 +9,7 @@ var update = 10000 //10 seconds
 var icon= L.icon({
     //iconURL:'noun_iss_956251.png',
     iconURL: 'iss.png',
+    //iconURL: '../WebClientServer/Client Labs/wk6/iss.png',
     iconSize: [50, 50],
     iconAnchor: [25,25]
 })
