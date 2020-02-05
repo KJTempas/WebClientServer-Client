@@ -9,7 +9,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery &copy;  <a href="https://www.mapbox.com/">Mapbox</a>',
     id: 'mapbox.streets',
     accessToken: 'pk.eyJ1Ijoia2F0aHJ5bnRlbXBhcyIsImEiOiJjazYwemh2aGowZGc0M25waWZ3dWlwczFiIn0.FhxQnfXpnEd62yFQ32huZw'
-    //accessToken: 'pk.eyJ1IjoiY2xhcmFsIiwiYSI6ImNqcmdwenViYTAwcHQ0Ym5yYmZ1Z3E2bjgifQ.QQfUvVaqPsWb_jJbP2gvHg' provided in Clara's project
+    
 }).addTo(map)
 
 
@@ -22,28 +22,22 @@ let bridgesAndSpans = [
 {bridge: 'George Washington Bridge', span: '1067.0 meters',lat: '40.8517', long: '-73.9527'},
 {bridge: 'Tacoma Narrows Bridge', span: '853.44 meters',lat: '47.2690', long: '-122.5517'}
 ]
-//creating icon - from leafletjs.com
-var bridgeIcon = L.icon({
-    iconUrl: 'bridge.png',
-    //shadowUrl: 'leaf-shadow.png',  ???
-    iconSize:     [50, 50], // size of the icon
-    //shadowSize:   [50, 64], // size of the shadow
-    iconAnchor:   [25, 25], // point of the icon which will correspond to marker's location
-    //shadowAnchor: [4, 62],  // the same for the shadow
-    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-});
 
 
 for(let i=0; i<bridgesAndSpans.length; i++) {  //loop over array
+    var icon = new L.Icon({iconUrl: 'bridge.png',
+                    iconSize: [40,40],
+                    iconAnchor: [25,25],
+                    popupAnchor:  [-3, -76]
+                });
     let length = bridgesAndSpans[i].span  //setting element in the object to variables
     let bridgeName= bridgesAndSpans[i].bridge
+//marker will go at these coordinates
     let bridgeCoordinates = [bridgesAndSpans[i].lat, bridgesAndSpans[i].long]  
-    //let bridgeMarker = L.marker(bridgeCoordinates, {icon: bridgeIcon}) //does not work
-    let bridgeMarker = L.marker(bridgeCoordinates) //coordinates go here - this works
-
-    
-    //let bridgeMarket = L.marker([bridgesAndSpans[i].lat, bridgesAndSpans[i].long], {icon: bridgeIcon})
-    .bindPopup(bridgeName + length)
+//putting the special marker onto the map
+    L.marker(bridgeCoordinates, {icon: icon}) 
+    .bindPopup(bridgeName +" " +  length)
     .addTo(map)
+    
 }
 

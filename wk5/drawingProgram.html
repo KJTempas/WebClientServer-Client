@@ -49,10 +49,17 @@
 
 
 <script>
-
+//reading the slider input (from w3schools)
+    let slider = document.getElementById("myRange");//selects the radius range slide by ID
+    let output = document.getElementById("sliderValue");
   var canvas = document.getElementById("canvas");
   var context = canvas.getContext("2d");
-  
+  output.innerHTML=50;
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+  output.innerHTML = this.value; 
+}
+
   var mousedown = false 
 
   canvas.addEventListener("mousedown", function() {
@@ -71,13 +78,9 @@
     // get the x, y location of the event
     var x = event.offsetX;
     var y = event.offsetY;   //offsetX, offsetY, may not work in older browsers
-  //reading the slider input (from w3schools)
-    let slider = document.getElementById("myRange");//selects the radius range slide by ID
-    let output = document.getElementById("sliderValue");
-    // Update the current slider value (each time you drag the slider handle)
-    slider.oninput = function() {
-    output.innerHTML = this.value; //does not show value at very beginning
-}
+  
+    
+    
     let radius = slider.value
     output.innerHTML = slider.value; // Display the slider value - but does so after drawing - want live
     console.log(radius)
