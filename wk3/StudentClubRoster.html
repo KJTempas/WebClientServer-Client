@@ -126,10 +126,10 @@ removeButton.addEventListener('click', function() {
     //remove each of these elements from the list 
         
         for(x=selectedItems.length-1; x>=0;x--) {
-            //selectedItems[x].innerHTML=""  //this leaves the bullet point, but erases out the text
+            
             let containerEl = selectedItems[x].parentNode
             console.log(containerEl)
-            containerEl.removeChild(selectedItems[x])  //removes only one child
+            containerEl.removeChild(selectedItems[x])  
             studentCount = studentCount -1    //remove one from counter each time you remove a student
             studentCountDisplay.innerHTML= studentCount
         }
