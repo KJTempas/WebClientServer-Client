@@ -2,6 +2,7 @@ let randomCountryElement = document.querySelector('#random-country')
 let userAnswerElement = document.querySelector("#user-answer")
 let submitButton = document.querySelector("#submit-answer")
 let resultTextElement = document.querySelector('#result')
+let playAgainELement = document.querySelector('#playAgain')
 let url = 'http://api.worldbank.org/v2/country/br?format=json '
 
 // TODO finish the script to challenge the user about their knowledge of capital cities.
@@ -13,20 +14,16 @@ console.log(countriesAndCodes)  // You don't need to log countriesAndCodes - jus
 
 
 // TODO when the page loads, select an element at random from the countriesAndCodes array
-//from w3schools
-    //function random_item(items)
-    //{ 
-    //return items[Math.floor(Math.random()*items.length)];  
-    //}
 //from stack overflow
     //var rand = compArray[Math.floor(Math.random() * compArray.length)];
     let randomCountry = countriesAndCodes[Math.floor(Math.random() * countriesAndCodes.length)];
-console.log(randomCountry)
+console.log(randomCountry) //works - see Object w/ name, alpha-2 and country-code; different each time refresh
 
 // TODO display the country's name in the randomCountryElement 
-randomCountryElement.innerHTML = {randomCountry}
-//get country code from countriesAndCodes array
-let countryCode = randomCountry.
+randomCountryElement.innerHTML = randomCountry.name  //shows country name to user-works
+//get country code from countriesAndCodes array - it is an array of objects
+
+console.log(countryCode)  
 
 // TODO add a click event handler to the submitButton.  When the user clicks the button,
 //  * read the text from the userAnswerElement 
@@ -44,7 +41,7 @@ submitButton.addEventListener('click', function() {
     let userAnswer=userAnswerElement.value  //get answer the user typed in
    //make a call to World Bank API
    fetch(url) 
-    .then( res => res.json() )
+    .then( res => res.json() )   //converts response to JSON object
     .then( data => {
         console.log(data)
             //check answer vs data here
@@ -57,7 +54,11 @@ submitButton.addEventListener('click', function() {
 
 })
 
+playAgainELement.addEventListener('click', function() {
+    //clear user's answer
+    userAnswer.innerHTML=''
 
+})
 
 
 // TODO finally, connect the play again button. Clear the user's answer, select a new random country, 
