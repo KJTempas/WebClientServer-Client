@@ -15,15 +15,15 @@ console.log(countriesAndCodes)  // You don't need to log countriesAndCodes - jus
 
 // TODO when the page loads, select an element at random from the countriesAndCodes array
 //from stack overflow
-    //var rand = compArray[Math.floor(Math.random() * compArray.length)];
     let randomCountry = countriesAndCodes[Math.floor(Math.random() * countriesAndCodes.length)];
 console.log(randomCountry) //works - see Object w/ name, alpha-2 and country-code; different each time refresh
-
+//console.log(randomCountry["country-code"])
+let countryAbbrev = randomCountry["alpha-2"]
+console.log(countryAbbrev)
+console.log(randomCountry["alpha-2"])
 // TODO display the country's name in the randomCountryElement 
 randomCountryElement.innerHTML = randomCountry.name  //shows country name to user-works
-//get country code from countriesAndCodes array - it is an array of objects
 
-console.log(countryCode)  
 
 // TODO add a click event handler to the submitButton.  When the user clicks the button,
 //  * read the text from the userAnswerElement 
@@ -39,12 +39,18 @@ console.log(countryCode)
 
 submitButton.addEventListener('click', function() {
     let userAnswer=userAnswerElement.value  //get answer the user typed in
+    console.log(userAnswer)  //works
    //make a call to World Bank API
    fetch(url) 
     .then( res => res.json() )   //converts response to JSON object
     .then( data => {
         console.log(data)
-            //check answer vs data here
+        //extract capital city from API response
+        //let capCity =     
+        //check answer vs data here
+
+
+
     })
     .catch( err => {
         console.log(err)
