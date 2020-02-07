@@ -3,7 +3,8 @@ let userAnswerElement = document.querySelector("#user-answer")
 let submitButton = document.querySelector("#submit-answer")
 let resultTextElement = document.querySelector('#result')
 let playAgainELement = document.querySelector('#playAgain')
-let url = 'http://api.worldbank.org/v2/country/br?format=json '
+//let url = 'http://api.worldbank.org/v2/country/br?format=json '
+//let url='http://api.worldbank.org/v2/country/' + countryAbbrev + '?format=json '  //includes code from countriesAndCodes
 
 // TODO finish the script to challenge the user about their knowledge of capital cities.
 // An array of country codes is provided in the countries.js file. 
@@ -24,7 +25,7 @@ console.log(randomCountry["alpha-2"])
 // TODO display the country's name in the randomCountryElement 
 randomCountryElement.innerHTML = randomCountry.name  //shows country name to user-works
 
-
+let url='http://api.worldbank.org/v2/country/' + countryAbbrev + '?format=json '
 // TODO add a click event handler to the submitButton.  When the user clicks the button,
 //  * read the text from the userAnswerElement 
 //  * Use fetch() to make a call to the World Bank API with the country code (from countriesAndCodes)
@@ -44,8 +45,11 @@ submitButton.addEventListener('click', function() {
    fetch(url) 
     .then( res => res.json() )   //converts response to JSON object
     .then( data => {
-        console.log(data)
+        console.log(data) //getting a result. 
         //extract capital city from API response
+        console.log(data[1])//working - one step down
+        console.log(data[1])
+        console.log(data[1].capitalCity)//undefined
         //let capCity =     
         //check answer vs data here
 
