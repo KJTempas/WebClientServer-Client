@@ -15,7 +15,8 @@ console.log(countriesAndCodes)  // You don't need to log countriesAndCodes - jus
 
 
 // TODO when the page loads, select an element at random from the countriesAndCodes array
-//from stack overflow
+//from stack overflowf
+//function selectNewCountry(){
 
 let randomCountry = countriesAndCodes[Math.floor(Math.random() * countriesAndCodes.length)];
 console.log(randomCountry) //works - see Object w/ name, alpha-2 and country-code; different each time refresh
@@ -27,6 +28,9 @@ console.log(randomCountry["alpha-2"])
 randomCountryElement.innerHTML = randomCountry.name  //shows country name to user-works
 
 let url='http://api.worldbank.org/v2/country/' + countryAbbrev + '?format=json '
+
+
+//selectNewCountry() //call the function
 // TODO add a click event handler to the submitButton.  When the user clicks the button,
 //  * read the text from the userAnswerElement 
 //  * Use fetch() to make a call to the World Bank API with the country code (from countriesAndCodes)
@@ -63,7 +67,6 @@ moved this down below, after function definition
         let capCityUp = capCity.toUpperCase()
         
         if (userAnswerUp ===capCityUp) {  
-            //console.log('You got it')  //works
             resultTextElement.innerHTML = `Correct answer! The capital of ${randomCountry.name} is ${capCity}`
         }else{
             resultTextElement.innerHTML = `Wrong - the capital of ${randomCountry.name} is not ${userAnswer}, it is ${capCity}`
@@ -89,9 +92,10 @@ playAgainElement.addEventListener('click', function() {
     resultTextElement.innerHTML=''
     // select another random country
     let randomCountry = countriesAndCodes[Math.floor(Math.random() * countriesAndCodes.length)];
-    let countryAbbrev = randomCountry["alpha-2"]
     //  display the country's name in the randomCountryElement 
     randomCountryElement.innerHTML = randomCountry.name  //shows country name to user
+
+    let countryAbbrev = randomCountry["alpha-2"]
     let url='http://api.worldbank.org/v2/country/' + countryAbbrev + '?format=json '
 })
 
