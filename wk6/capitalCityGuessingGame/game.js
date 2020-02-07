@@ -2,7 +2,7 @@ let randomCountryElement = document.querySelector('#random-country')
 let userAnswerElement = document.querySelector("#user-answer")
 let submitButton = document.querySelector("#submit-answer")
 let resultTextElement = document.querySelector('#result')
-let playAgainELement = document.querySelector('#playAgain')
+let playAgainElement = document.querySelector('#playAgain')
 //let url = 'http://api.worldbank.org/v2/country/br?format=json '
 //let url='http://api.worldbank.org/v2/country/' + countryAbbrev + '?format=json '  //includes code from countriesAndCodes
 
@@ -16,11 +16,12 @@ console.log(countriesAndCodes)  // You don't need to log countriesAndCodes - jus
 
 // TODO when the page loads, select an element at random from the countriesAndCodes array
 //from stack overflow
-    let randomCountry = countriesAndCodes[Math.floor(Math.random() * countriesAndCodes.length)];
+
+let randomCountry = countriesAndCodes[Math.floor(Math.random() * countriesAndCodes.length)];
 console.log(randomCountry) //works - see Object w/ name, alpha-2 and country-code; different each time refresh
 //console.log(randomCountry["country-code"])
 let countryAbbrev = randomCountry["alpha-2"]
-console.log(countryAbbrev)
+//console.log(countryAbbrev)
 console.log(randomCountry["alpha-2"])
 // TODO display the country's name in the randomCountryElement 
 randomCountryElement.innerHTML = randomCountry.name  //shows country name to user-works
@@ -38,41 +39,60 @@ let url='http://api.worldbank.org/v2/country/' + countryAbbrev + '?format=json '
 //  * Finally, display an appropriate message in the resultTextElement to tell the user if they are right or wrong. 
 //      For example "Correct! The capital of Germany is Berlin" or "Wrong - the capital of Germany is not G, it is Berlin"
 
-submitButton.addEventListener('click', function() {
+/*submitButton.addEventListener('click', function() {
     let userAnswer=userAnswerElement.value  //get answer the user typed in
     console.log(userAnswer)  //works
+    checkAnswer(userAnswer) //method call
+moved this down below, after function definition
+}*/  
+    function checkAnswer(userAnswer) {
    //make a call to World Bank API
    fetch(url) 
     .then( res => res.json() )   //converts response to JSON object
     .then( data => {
         console.log(data) //getting a result. 
         //extract capital city from API response
-        console.log(data[1])//working - one step down
-        console.log(data[1][0]) //gettingcloser
-        console.log(data[1][0].capitalCity)  //got it
+        //console.log(data[1])//working - one step down
+        //console.log(data[1][0]) //gettingcloser
+        //console.log(data[1][0].capitalCity)  //got it
         
         let capCity = (data[1][0].capitalCity)   
         console.log(capCity) 
-        //check answer vs data here
-        if (userAnswer ===capCity) {  //TODO  make case insensitive
-            console.log('You got it')  //works
+        //check user answer vs data from API here
+        let userAnswerUp = userAnswer.toUpperCase()
+        let capCityUp = capCity.toUpperCase()
+        
+        if (userAnswerUp ===capCityUp) {  
+            //console.log('You got it')  //works
             resultTextElement.innerHTML = `Correct answer! The capital of ${randomCountry.name} is ${capCity}`
+        }else{
+            resultTextElement.innerHTML = `Wrong - the capital of ${randomCountry.name} is not ${userAnswer}, it is ${capCity}`
         }
-
 
     })
     .catch( err => {
         console.log(err)
         alert("Error in program")
     })
+}
 
+submitButton.addEventListener('click', function() {
+    let userAnswer=userAnswerElement.value  //get answer the user typed in
+    console.log(userAnswer)  //works
+    checkAnswer(userAnswer) //method call
 
 })
 
-playAgainELement.addEventListener('click', function() {
-    //clear user's answer
-    userAnswer.innerHTML=''
-
+playAgainElement.addEventListener('click', function() {
+    //clear user's answer and result text
+    userAnswerElement.value=''
+    resultTextElement.innerHTML=''
+    // select another random country
+    let randomCountry = countriesAndCodes[Math.floor(Math.random() * countriesAndCodes.length)];
+    let countryAbbrev = randomCountry["alpha-2"]
+    //  display the country's name in the randomCountryElement 
+    randomCountryElement.innerHTML = randomCountry.name  //shows country name to user
+    let url='http://api.worldbank.org/v2/country/' + countryAbbrev + '?format=json '
 })
 
 
