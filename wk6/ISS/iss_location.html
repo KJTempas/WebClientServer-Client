@@ -4,14 +4,14 @@
 <meta charset = “UTF-8”>
 
 <head>
-<title> Hello Fetch - Where's the ISS?   </title>
+<title>  Where's the ISS?   </title>
 
-<!--leaflet script and CSS -->
+
 <!-- Leaflet script and CSS -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
 
-<!--our stylesheet. make sure the size of the map div is set before trying to draw the map-->
+<!--the stylesheet. note to self-make sure the size of the map div is set before trying to draw the map-->
 <link rel="stylesheet" type="text/css" href="style.css">
 <!--async = load the script in parallel with the HTML
     defer= wait until the HTML has finished loading before running the script-->
@@ -21,10 +21,11 @@
 <body>
 
     <h1> Where is the International Space Station?</h1>
-    <div>
+    <div>  <!--these will display updated info-->
         <p>ISS Latitude: <span id="iss-lat"></span></p>
         <p>ISS Longitude: <span id="iss-long"></span></p>
+        <p>Last updated:<span id="time"></span></p>
     </div>
-    <div id="iss-map"></div>  <!--the map div-->
+    <div id="iss-map"></div>  <!--the map will go here->
 </body>
 </html>
