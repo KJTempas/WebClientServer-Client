@@ -48,11 +48,16 @@ submitButton.addEventListener('click', function() {
         console.log(data) //getting a result. 
         //extract capital city from API response
         console.log(data[1])//working - one step down
-        console.log(data[1])
-        console.log(data[1].capitalCity)//undefined
-        //let capCity =     
+        console.log(data[1][0]) //gettingcloser
+        console.log(data[1][0].capitalCity)  //got it
+        
+        let capCity = (data[1][0].capitalCity)   
+        console.log(capCity) 
         //check answer vs data here
-
+        if (userAnswer ===capCity) {  //TODO  make case insensitive
+            console.log('You got it')  //works
+            resultTextElement.innerHTML = `Correct answer! The capital of ${randomCountry.name} is ${capCity}`
+        }
 
 
     })
