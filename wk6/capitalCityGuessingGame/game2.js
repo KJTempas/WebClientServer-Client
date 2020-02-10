@@ -1,4 +1,4 @@
-//trying with more functions
+//my original - less functions, but replay doesn't work well - url issue
 
 let randomCountryElement = document.querySelector('#random-country')
 let userAnswerElement = document.querySelector("#user-answer")
@@ -9,23 +9,20 @@ let playAgainElement = document.querySelector('#playAgain')
 //let url='http://api.worldbank.org/v2/country/' + countryAbbrev + '?format=json '  //includes code from countriesAndCodes
 
 console.log(countriesAndCodes)  // You don't need to log countriesAndCodes - just proving it is available 
+    
+//how to get random info -from stack overflow
+let randomCountry = countriesAndCodes[Math.floor(Math.random() * countriesAndCodes.length)];
+console.log(randomCountry) //works - see Object w/ name, alpha-2 and country-code; different each time refresh
+let countryAbbrev = randomCountry["alpha-2"]
+//console.log(countryAbbrev)
+console.log(randomCountry["alpha-2"])
+// TODO display the country's name in the randomCountryElement 
+randomCountryElement.innerHTML = randomCountry.name  //shows country name to user-works
 
-//function selectNewCountry(){
-function startGame() {
-//how to get random -info from stack overflow
-    let randomCountry = countriesAndCodes[Math.floor(Math.random() * countriesAndCodes.length)];
-    console.log(randomCountry) //works - see Object w/ name, alpha-2 and country-code; different each time refresh
-    let countryAbbrev = randomCountry["alpha-2"]
-    //console.log(countryAbbrev)
-    console.log(randomCountry["alpha-2"])
-    // TODO display the country's name in the randomCountryElement 
-    randomCountryElement.innerHTML = randomCountry.name  //shows country name to user-works
+let url='http://api.worldbank.org/v2/country/' + countryAbbrev + '?format=json '
 
-    let url='http://api.worldbank.org/v2/country/' + countryAbbrev + '?format=json '
-    return url, randomCountry;
-}
-
-function checkAnswer(url,userAnswer, randomCountry) {
+function checkAnswer( userAnswer) {
+//    function checkAnswer(url, userAnswer) {
    //make a call to World Bank API
    fetch(url) 
     .then( res => res.json() )   //converts response to JSON object
@@ -53,7 +50,6 @@ function checkAnswer(url,userAnswer, randomCountry) {
         alert("Error in program")
     })
 }
-startGame()  //function call and return
 
 submitButton.addEventListener('click', function() {
     let userAnswer=userAnswerElement.value  //get answer the user typed in
@@ -69,16 +65,15 @@ playAgainElement.addEventListener('click', function() {
     //clear user's answer and result text
     userAnswerElement.value=''
     resultTextElement.innerHTML=''
-    url=startGame()   //function call
     // select another random country
-    /*let randomCountry = countriesAndCodes[Math.floor(Math.random() * countriesAndCodes.length)];
+    let randomCountry = countriesAndCodes[Math.floor(Math.random() * countriesAndCodes.length)];
     //  display the country's name in the randomCountryElement 
     randomCountryElement.innerHTML = randomCountry.name  //shows country name to user
 
     let countryAbbrev = randomCountry["alpha-2"]
     console.log(countryAbbrev)//getting new country's abbrev from countries.js? -yes
     let url='http://api.worldbank.org/v2/country/' + countryAbbrev + '?format=json '
-*/
+    
 })
 
 // TODO finish the script to challenge the user about their knowledge of capital cities.
