@@ -66,13 +66,13 @@ playAgainElement.addEventListener('click', function() {
     userAnswerElement.value=''
     resultTextElement.innerHTML=''
     // select another random country
-    let randomCountry = countriesAndCodes[Math.floor(Math.random() * countriesAndCodes.length)];
+    randomCountry = countriesAndCodes[Math.floor(Math.random() * countriesAndCodes.length)];
     //  display the country's name in the randomCountryElement 
     randomCountryElement.innerHTML = randomCountry.name  //shows country name to user
 
-    let countryAbbrev = randomCountry["alpha-2"]
+    countryAbbrev = randomCountry["alpha-2"]
     console.log(countryAbbrev)//getting new country's abbrev from countries.js? -yes
-    let url='http://api.worldbank.org/v2/country/' + countryAbbrev + '?format=json '
+    url='http://api.worldbank.org/v2/country/' + countryAbbrev + '?format=json '
     
 })
 
