@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<lang=”en”>
+<meta charset = “utf-8”>
+
+<head>
+    <title>Hello Vue    </title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Hello Vue</h1>
+       <!-- <p v-text="message"></p> alternate to {{moustache}} syntax-->
+        <p>
+            {{ message.toUpperCase() }}
+        </p>
+        <button v-on:click="addExclamation">Add !</button>
+    </div>
+    
+    <script>
+        let app=new Vue({ //creating a Vue instance
+            el: '#app',  //associate instance w/ element on the page (div#app)
+            data: {
+                message: 'hi!',
+                //numberOfExplPts: '0'
+            },
+            methods: {
+                addExclamation: function() {
+                   // while(numberOfExplPts<=10){
+                    this.message = this.message + '!'
+                    //numberOfExplPts++
+                   // }
+                }
+            },
+            filters: {
+                uppercase: function(string) {  //this is better than putting toUpperCase in html
+                    return string.toUpperCase() //app logic  in Vue instance, not in template
+                }
+            }
+        })
+    </script>
+</body>
+</html>
