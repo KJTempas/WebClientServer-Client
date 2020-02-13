@@ -17,7 +17,7 @@ body{
     /* fallback image */
     background-image: url("images/fallback-image.png");
     /* Firefox 3.6+    different browsers have different syntax*/
-    background-image: -moz-linear-gradient((#59BEF5 ,#B0DCF4);
+    background-image: -moz-linear-gradient(#59BEF5 ,#B0DCF4);
     /* Safari 5.1+, Chrome 10+ */
     background-image: -webkit-linear-gradient(#59BEF5 ,#B0DCF4);
     /* Opera 11.10+ */
