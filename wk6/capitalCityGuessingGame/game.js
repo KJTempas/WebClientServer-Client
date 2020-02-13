@@ -21,7 +21,7 @@ console.log(countriesAndCodes)  // You don't need to log countriesAndCodes - jus
     // TODO display the country's name in the randomCountryElement 
     randomCountryElement.innerHTML = randomCountry.name  //shows country name to user-works
 
-    let url='http://api.worldbank.org/v2/country/' + countryAbbrev + '?format=json '
+    let url='https://api.worldbank.org/v2/country/' + countryAbbrev + '?format=json '
     
 
 function checkAnswer(userAnswer) {
