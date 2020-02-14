@@ -1,0 +1,10 @@
+Web Client & Server - lab 7
+2. Property or method....is not defined on the instance but referenced during render-
+What does Vue error message mean? What causes it, and how do you fix it?
+
+In this example, Vue data (when you create the new Vue app in the script area) only has 3 variables - name, quantity and unit price. But in the template(HTML part), one of the variables is {{total}} - so there is another variable that the Vue instance doesn't know about. 
+To fix this issue, you need to define the other variable in the instance, but it is computed from data variables, so it goes in a different section of the Vue instance, - computed: where the function to determine the value is described. 
+After defining the {{total}} in the computed: section, the error goes away.
+
+
+
