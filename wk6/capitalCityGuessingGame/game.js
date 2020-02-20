@@ -1,5 +1,5 @@
 
-
+//connect html elements to variable for use in javascript
 let randomCountryElement = document.querySelector('#random-country')
 let userAnswerElement = document.querySelector("#user-answer")
 let submitButton = document.querySelector("#submit-answer")
@@ -38,6 +38,7 @@ function checkAnswer(userAnswer) {
         let capCity = (data[1][0].capitalCity)   
         console.log(capCity) 
         //check user answer vs data from API here
+        //convert to uppercase for comparison
         let userAnswerUp = userAnswer.toUpperCase()
         let capCityUp = capCity.toUpperCase()
         
